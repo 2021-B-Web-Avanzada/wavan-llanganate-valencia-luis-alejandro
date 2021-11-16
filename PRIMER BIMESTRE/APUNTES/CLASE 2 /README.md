@@ -35,10 +35,22 @@ Enviamos los cambios empleando:
 git push origin main
 ```
 
+### Del repositorio remoto al local, y viceversa
+
 A continuación creamos una archivo `resta.txt` desde nuestro repositorio remoto utilizando GitHub, y añadimos estos cambios a nuestro repositorio remoto.
 
 ![image](https://user-images.githubusercontent.com/20259832/141990145-8526490e-fb0a-40cd-b395-566fb19a6091.png)
 
+Luego creamos otro archivo desde local:
+```
+echo "multiplicacion" > multiplicacion.txt
+```
+
+Una vez hecho esto primero realizamos un pull, luego podríamos hacemos un commit de merge, no obstante en mi caso he preferido hacer la fusión con Fast-fordward.
+![image](https://user-images.githubusercontent.com/20259832/141991778-02c4d7a5-a4b3-41db-b376-b979c3ca1441.png)
+
+Luego de esto finalmente podremos hacer un push de este cambio a nuestro repositorio remoto.
+![image](https://user-images.githubusercontent.com/20259832/141992244-c3c478b4-67e3-4058-b7c0-bcbc133195e9.png)
 
 
 ### Bibliografia:
