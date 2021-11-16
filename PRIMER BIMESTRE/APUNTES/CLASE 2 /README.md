@@ -2,7 +2,7 @@
 
 ### Objetivos
 -  Comprender cómo funcionan los sistemas de control de versiones para manejar herramientas con Git. 
--  Utilizar un servidor y un cliente Git como GitHub y GitKraken respectivamente.  
+-  Comprender el uso de gitignore para 
 -  Crear un repositorio para aplicar los conocimientos aprendidos (commits, ramas, manejo de conflictos, entre otros). 
 ### Desarrollo
 
@@ -19,7 +19,7 @@ Dentro de este archivo hacemos referencia al siguiente directorio:
 ```
 .idea/
 ```
-## Esquema de trabajo
+### Esquema de trabajo
 Contamos con una copia del repositorio remoto en nuestra máquina, esto se lo conoce como **repositorio local**. En ambos repositorios trabajamos sobre la rama principal o main.
 
 ![image](https://user-images.githubusercontent.com/20259832/141987710-7118f576-5b8e-4495-9bdb-b8d4fafb28c1.png)
@@ -34,6 +34,10 @@ Enviamos los cambios empleando:
 ```
 git push origin main
 ```
+
+A continuación creamos una archivo `resta.txt` desde nuestro repositorio remoto utilizando GitHub, y añadimos estos cambios a nuestro repositorio remoto.
+
+![image](https://user-images.githubusercontent.com/20259832/141990145-8526490e-fb0a-40cd-b395-566fb19a6091.png)
 
 
 
