@@ -19,6 +19,22 @@ Dentro de este archivo hacemos referencia al siguiente directorio:
 ```
 .idea/
 ```
+## Esquema de trabajo
+Contamos con una copia del repositorio remoto en nuestra máquina, esto se lo conoce como **repositorio local**. En ambos repositorios trabajamos sobre la rama principal o main.
+
+![image](https://user-images.githubusercontent.com/20259832/141987710-7118f576-5b8e-4495-9bdb-b8d4fafb28c1.png)
+
+Sobre este esquema podemos realizar las siguientes acciones:
+
+- *push:* se utiliza para cargar el contenido del repositorio local en un repositorio remoto.
+- *pull:* utilizado para actualizar la versión local de un repositorio desde un control remoto.
+- *fetch:* descarga confirmaciones, archivos y referencias desde un repositorio remoto a su repositorio local.
+
+Enviamos los cambios empleando:
+```
+git push origin main
+```
+
 
 
 ### Bibliografia:
