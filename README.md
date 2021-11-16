@@ -6,3 +6,4 @@ Repositorio personal para la materia de Aplicaciones Web Avanzadas.
 
 ## Contenidos
 - [Clase 1 - Git y GitHub](https://github.com/2021-B-Web-Avanzada/wavan-llanganate-valencia-luis-alejandro/tree/master/PRIMER%20BIMESTRE/APUNTES/CLASE%201%20-%20GitHub)
+- [Clase 2 - Manejo de commits, ramas y conflictos](https://github.com/2021-B-Web-Avanzada/wavan-llanganate-valencia-luis-alejandro/tree/master/PRIMER%20BIMESTRE/APUNTES/CLASE%202%20)
