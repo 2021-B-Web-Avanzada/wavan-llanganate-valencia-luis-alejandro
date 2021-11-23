@@ -1,10 +1,10 @@
-# Clase 4 - Objectos
+# Clase 4 - Objectos y arreglos
 ### Objetivos
 - Comprender como asignar y acceder a las propiedades de un objeto en JavaScript, y métodos relacionados útiles a la hora de codificar.
 - Entender la diferencia entre las variables por valor y las variables por referencia, y aplicar estos conocimientos en ejemplos prácticos.
 
 ### Desarrollo
-*Objects*
+**Objects**
 
 - Podemos acceder a las propiedades de un objeto de diferentes maneras. Incluso podemos acceder a propiedades no declaradas en el objeto, pero estas tendrán el valor de `undefined`.
 ```javascript
@@ -44,7 +44,8 @@ delete alejandro.nombre
 console.log(alejandro) // objecto sin la propiedad nombre
 ```
 
-*Variables por valor*
+**Variables por valor**
+
 - Cuando reasignamos el valor de una variable a otra variable, si se trata de primitivos, entonces estamos asignando el valor de esa variable más no su referencia.
 ```javascript
 // Para primitivos: number, string, boolean
@@ -60,7 +61,8 @@ console.log(edadAlejandro); // 24
 console.log(edadLuis); // 23
 ```
 
-*Variables por referencia*
+**Variables por referencia**
+
 - Se aplican sobre objetos.
 - Al asignar un objeto a otro objeto, no se crea un nuevo objeto, sino se referencia al otro objeto lo cual hará que se modifiquen las propiedades del objeto inicial cuando en el segundo se desee cambiarlas.
 ```javascript
@@ -83,7 +85,7 @@ console.log(rafael); // objeto sin propiedad nombre
 console.log(lenin); // objeto sin propiedad nombre
 ```
 
-*Clonar correctamente un objeto*
+**Clonar correctamente un objeto**
 
 - `Object.assign` copia todas las propiedades propias enumerables de uno o más objetos de origen a un objeto de destino. Devuelve el objeto de destino modificado.
 ```javascript
@@ -101,9 +103,46 @@ console.log(rafael); // Rafael
 console.log(lenin); // Lenin
 ```
 
+**Arreglos**
+
+Un `array` puede contener elementos del mismo tipo o de diferente tipo.
+
+```javascript
+const arreglo = [6,7,8,9,10]; 
+
+// Arreglo con diferentes tipos 
+const array2 = ["A", true, 85, 859.36, 'Asss']
+```
+
+Podemos iterar un arreglo de diferentes formas:
+- `for of`: en cada iteracción accedemos a un elemento en particular del arreglo.
+```javascript
+// for of 
+for(let numero of arreglo){ 
+    console.log('numero', numero); 
+}
+```
+- `for in`: en cada iteracción accedemos al índice de un elemento en particular del arreglo.
+```javascript
+// for in
+for(let indice in arreglo){ 
+    arreglo[indice]; 
+    console.log('indice', indice); 
+}
+```
+- Así también es posible iterar en las propiedades de un objeto utilizando un `for in` para acceder a las keys del objeto.
+```javascript
+let objPrueba = { 
+    'a': 1, 
+    'b': true 
+  }  
+
+for(let llave in objPrueba){ 
+    console.log('llave', llave) 
+   }
+```
 
 ### Conclusiones
 
-
-### Biografía
+En conclusión, es posible acceder a propiedades de un objeto utilizando la notación de punto o de corchete, y a su vez una peculiaridad que tienen los objetos es que se puede acceder incluso a propiedades que no fueron previamente declaradas. Por otro lado, es posible trabajar con variables por valor como los primitivos o por referencia como los objetos, en el caso de los objetos hay considerar sobre todo aquello debido a que se deberán copiar todas las propiedades a un nuevo objeto destino.
 
