@@ -1,8 +1,8 @@
-# Clase 5
+# Clase 5 - Métodos de arreglos y operadores
 
 ### Objetivos
 - Aprender los métodos más usados de los arreglos para luego aplicarlos en el desarrollo del frontend del curso.
-
+- Conocer los operadores que se basan en programación funcional que permiten iterar elementos de un arreglos de tal forma que se puedan realizar operaciones sobre ellos.
 ### Desarrollo
 
 **Métodos**
@@ -34,7 +34,7 @@ arreglo.splice(indiceNueve, 2)
 console.log(arreglo); // [4, 7, 8]
 ```
 **Operadores**
-
+Para entender operadores vamos a utilizar el siguiente arreglo: 
 ```javascript
 const arreglo = [
 {
@@ -115,8 +115,10 @@ const respuestaIndex = arreglo
   
 console.log('respuestaIndex', respuestaIndex); // Cristian // Si no encuentra devuelve undefined
 ```
+
 - `forEach`: El método llama a una función para cada elemento de una matriz. El método `forEach()` no se ejecuta para elementos vacíos. Invoca una función `callbackFn` proporcionada una vez para cada elemento de una matriz en orden de índice ascendente. No se invoca para propiedades de índice que se han eliminado o no se han inicializado.
   - `forEach()` ejecuta la función callbackFn una vez para cada elemento de la matriz; a diferencia de `map()` o `reduce()`, siempre devuelve el valor indefinido y no es encadenable.
+
 ```javascript
 const respuestaForEach = arreglo
   .forEach(
@@ -127,6 +129,7 @@ const respuestaForEach = arreglo
   
 console.log('respuestaForEach', respuestaForEach); // undefined
 ```
+
 - `map`: crea un nuevo arreglo poblado con los resultados de llamar a una función proporcionada en cada elemento de la matriz de llamada [[4]](#4).
 
 ```javascript
@@ -145,9 +148,44 @@ const respuestaMap = arreglo
 console.log('respuestaMap', respuestaMap);
 ```
 
+- `filter`: crea un nuevo arreglo con todos los elementos que pasan la prueba implementada por la función proporcionada [[5]](#5).
+
+```javascript
+const respuestaFilter = arreglo
+  .filter(
+    valorActual => valor actual.nota >= 14;
+  )
+  
+console.log('respuestaFilter', respuestaFilter);
+console.log('arreglo', arreglo);
+```
+
+- `some`: ejecuta la función `callbackFn` una vez para cada elemento presente en la matriz hasta que encuentra aquel en el que callbackFn devuelve un valor verdadero (un valor que se convierte en verdadero cuando se convierte a booleano). 
+  - Si se encuentra tal elemento, `some()` inmediatamente devuelve verdadero. 
+  - De lo contrario, `some()` devuelve falso.
+
+```javascript
+const respuestaSome = arreglo
+  .some(
+    valorActual => valorActual.nota < 9;
+  )
+  
+console.log('respuestaSome', respuestaSome);
+```
+
+- `every`: ejecuta una función para cada elemento del arreglo. El método `every()` devuelve verdadero si la función devuelve verdadero para todos los elementos [[6]](#6).
+
+```
+const respuestaEvery = arreglo
+  .every(
+    valorActual => valorActual.nota < 14;
+  )
+
+console.log('respuestaEvery', respuestaEvery);
+```
 
 ### Conclusiones
-- Entre los métodos revisados en clase, uno de los más utilizados por su doble funcionalidad es el de `splice` que permite tanto eliminar elementos y agregar nuevos en su lugar. 
+En conclusión, entre los métodos revisados en clase, uno de los más utilizados por su doble funcionalidad es el de `splice` que permite tanto eliminar elementos y agregar nuevos en su lugar. Así también, los operadores estudiados permiten iterar de una manera más simple un arreglo para realizar operaciones sobre ellos, y esto es comunmente usado para trabajar con datos que por ejemplo podrían ser traidos desde una API. 
 
 ### Bibliografía
 <a id="1">[1]</a> https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice
@@ -157,3 +195,7 @@ console.log('respuestaMap', respuestaMap);
 <a id="3">[3]</a> https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
 
 <a id="4">[4]</a> https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map
+
+<a id="5">[5]</a> https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
+
+<a id="6">[6]</a> https://www.w3schools.com/jsref/jsref_every.asp
