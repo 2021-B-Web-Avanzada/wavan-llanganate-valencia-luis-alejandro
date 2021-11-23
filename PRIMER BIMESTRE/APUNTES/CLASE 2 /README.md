@@ -1,9 +1,9 @@
-# Clase 2
+# Clase 2 - Manejo de commits, ramas y conflictos
 
 ### Objetivos
--  Comprender cómo funcionan los sistemas de control de versiones para manejar herramientas con Git. 
--  Comprender el uso de gitignore para 
--  Crear un repositorio para aplicar los conocimientos aprendidos (commits, ramas, manejo de conflictos, entre otros). 
+-  Comprender como trabajar con git con repositorios remotos y locales.
+-  Aprender a crear y utilizar ramas, y su importancia en un esquema de trabajo colaborativo con git. 
+-  Comprender cómo realizar pull requests utilizando GitHub correctamente y solucionar conflictos al fusionar ramas .
 ### Desarrollo
 
 Creamos un nuevo archivo con:
@@ -19,7 +19,8 @@ Dentro de este archivo hacemos referencia al siguiente directorio:
 ```
 .idea/
 ```
-### Esquema de trabajo
+**Esquema de trabajo**
+
 Contamos con una copia del repositorio remoto en nuestra máquina, esto se lo conoce como **repositorio local**. En ambos repositorios trabajamos sobre la rama principal o main.
 
 <p align="center">
@@ -37,7 +38,7 @@ Enviamos los cambios empleando:
 git push origin main
 ```
 
-### Del repositorio remoto al local, y viceversa
+**Del repositorio remoto al local, y viceversa**
 
 A continuación creamos una archivo `resta.txt` desde nuestro repositorio remoto utilizando GitHub, y añadimos estos cambios a nuestro repositorio remoto.
 
@@ -59,10 +60,10 @@ Una vez hecho esto primero realizamos un pull, luego podríamos hacemos un commi
 Luego de esto finalmente podremos hacer un push de este cambio a nuestro repositorio remoto.
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/20259832/141992244-c3c478b4-67e3-4058-b7c0-bcbc133195e9.png">
+  <img width="700px;" src="https://user-images.githubusercontent.com/20259832/141992244-c3c478b4-67e3-4058-b7c0-bcbc133195e9.png">
 </p>
 
-### Merge Conflicts
+**Merge Conflicts**
 
 Generamos un conflicto primero añadiendo un cambio desde el respositorio remoto:
 <p align="center">
@@ -100,25 +101,44 @@ Los cambios locales están sobre la línea `===` y los cambios por debajo son lo
   <img width="500px;" src="https://user-images.githubusercontent.com/20259832/141995556-bc74553b-d79f-44ae-abbe-0bda75608605.png">
 </p>
 
-### Workflow desde otra rama
+**Workflow desde otra rama**
+
 Creamos una rama de desarrollo desde GitHub:
 <p align="center">
-  <img width="300px;" src="https://user-images.githubusercontent.com/20259832/141996824-abd24a35-949e-4d3f-bd99-7976348604fb.png">
+  <img width="350px;" src="https://user-images.githubusercontent.com/20259832/141996824-abd24a35-949e-4d3f-bd99-7976348604fb.png">
 </p>
 
-![image](https://user-images.githubusercontent.com/20259832/141997571-f21c1124-4e8b-49ff-af6b-f78fa2dc2738.png)
+A esta rama le llamaremos `develop`, por lo tanto al aplicar el comando `git pull` podemos observar como se actualiza y se integra esta rama que creamos en GitHub.
 
-![image](https://user-images.githubusercontent.com/20259832/141997934-a3ce6e8e-7d2b-4ae8-a162-0bd953d9bde7.png)
+<p align="center">
+  <img width="600px;" src="https://user-images.githubusercontent.com/20259832/141997571-f21c1124-4e8b-49ff-af6b-f78fa2dc2738.png">
+</p>
 
-Creamos un pull request.
-![image](https://user-images.githubusercontent.com/20259832/141998192-2251872a-b99e-4b3f-8612-797caf2aaa73.png)
+Con fines prácticos creamos un archivo `division.txt` y subimos este cambio al repositorio remoto.
 
+<p align="center">
+  <img width="600px;" src="https://user-images.githubusercontent.com/20259832/141997934-a3ce6e8e-7d2b-4ae8-a162-0bd953d9bde7.png">
+</p>
 
-![image](https://user-images.githubusercontent.com/20259832/141998827-87d96e9b-33db-40c9-a604-4915c5c21280.png)
+<p align="center">
+  <img width="600px;" src="https://user-images.githubusercontent.com/20259832/141998192-2251872a-b99e-4b3f-8612-797caf2aaa73.png">
+</p>
 
-![image](https://user-images.githubusercontent.com/20259832/141998925-10a32ec7-b2ea-4d3c-b66d-fab40e58f5a0.png)
+Creamos un pull request para fusionar la rama `develop` con la principal y notamos que existen conflictos por resolver.
 
-![image](https://user-images.githubusercontent.com/20259832/141999041-59292633-401f-43e9-8db3-89834ab8b8bc.png)
+<p align="center">
+  <img width="600px;" src="https://user-images.githubusercontent.com/20259832/141998925-10a32ec7-b2ea-4d3c-b66d-fab40e58f5a0.png">
+</p>
+
+Dentro del mismo GitHub tenemos la opción de `resolve conflicts` en donde se visualizará en cuadro de texto para resolver manualmente los conflictos. Luego de esto es posible hacer el merge como se ve a continuación.
+
+<p align="center">
+  <img width="600px;" src="https://user-images.githubusercontent.com/20259832/141999041-59292633-401f-43e9-8db3-89834ab8b8bc.png">
+</p>
+
+### Conclusiones
+- Trabajar con ramas es una buena práctica ya que nos permite realizar modificaciones al código de manera independiente sin afectar otros espacios de trabajos. Y cuando, finalmente consideremos que los cambios estén listos, poder aplicar `pull requests` para integrar los cambios a una rama específica.
+- Se pueden presentar tanto conflictos en el repositorio local como en GitHub, para ambos casos será importante resolver los conflictos de forma manual.
 
 
 ### Bibliografia:
