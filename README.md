@@ -10,3 +10,4 @@ Repositorio personal para la materia de Aplicaciones Web Avanzadas.
 - [Clase 3 - Variables en JavaScript](https://github.com/2021-B-Web-Avanzada/wavan-llanganate-valencia-luis-alejandro/tree/master/PRIMER%20BIMESTRE/APUNTES/CLASE%203)
 - [Clase 4 - Objetos y arreglos](https://github.com/2021-B-Web-Avanzada/wavan-llanganate-valencia-luis-alejandro/tree/master/PRIMER%20BIMESTRE/APUNTES/CLASS%204)
 - [Clase 5 - Métodos de los arreglos y operadores](https://github.com/2021-B-Web-Avanzada/wavan-llanganate-valencia-luis-alejandro/tree/master/PRIMER%20BIMESTRE/APUNTES/CLASE%205)
+- [Clase 6 - Funciones](https://github.com/2021-B-Web-Avanzada/wavan-llanganate-valencia-luis-alejandro/tree/master/PRIMER%20BIMESTRE/APUNTES/CLASE%206)
