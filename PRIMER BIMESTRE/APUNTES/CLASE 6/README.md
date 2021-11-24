@@ -125,12 +125,42 @@ sumarNumberos(1,2,3,4,5,6,7,8,9,10,11,12,13);
 
 ```
 
+
+
 **Destructuración**
 
+La sintaxis de asignación de desestructuración es una expresión de JavaScript que permite descomprimir valores de arreglos o propiedades de objetos en distintas variables.
+
+*Destrucruación de objetos*
+- `...` Permite pasar todos los pares clave: valor de un objeto
+- Para `object literals` (nuevo en ECMAScript 2018).
+
+```javascript
+const adrian = {
+  nombre: "Adrian"
+};
+
+const carolina = {
+  nombre: "Carolina",
+  apellido: "Eguez"
+};
+
+const adrianCarolina = {
+  ...carolina, // 1 El orden es importante para propiedades que se repiten
+  ...adrian, // 2 El último reemplaza a los anteriores
+};
+
+console.log('adrianCarolina', adrianCarolina);
+```
+
 ### Conclusiones
-- 
+- Debido a que las funciones en JavaScript no están sujetas a validaciones por el lenguaje, esta característica significa un proyecto para los proyectos grandes en dónde el proceso de debugging se vuelve complejo. TypeScript en un super de JavaScript que soluciona este inconveniente y por lo tanto es un lenguaje más apropiado para proyectos grandes.
+- Las funciones flecha son adecuadas a utilizar para cualquier ámbito que esté vinculado al contexto, y no a la función en sí. Otra aplicabilidad de estas funciones pese a sus limitaciones es que son comunmente utilizados en métodos como `map`, `filter`, `reduce` y otros operadores.
+
+
 
 ### Bibliografía
 
 <a id="1">[1]</a> https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce
+
 <a id="2">[2]</a> https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions
