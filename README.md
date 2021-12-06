@@ -11,3 +11,4 @@ Repositorio personal para la materia de Aplicaciones Web Avanzadas.
 - [Clase 4 - Objetos y arreglos](https://github.com/2021-B-Web-Avanzada/wavan-llanganate-valencia-luis-alejandro/tree/master/PRIMER%20BIMESTRE/APUNTES/CLASS%204)
 - [Clase 5 - Métodos de los arreglos y operadores](https://github.com/2021-B-Web-Avanzada/wavan-llanganate-valencia-luis-alejandro/tree/master/PRIMER%20BIMESTRE/APUNTES/CLASE%205)
 - [Clase 6 - Funciones y destructuración](https://github.com/2021-B-Web-Avanzada/wavan-llanganate-valencia-luis-alejandro/tree/master/PRIMER%20BIMESTRE/APUNTES/CLASE%206)
+- [Clase 7 - Callbacks](https://github.com/2021-B-Web-Avanzada/wavan-llanganate-valencia-luis-alejandro/tree/master/PRIMER%20BIMESTRE/APUNTES/CLASE%207)
