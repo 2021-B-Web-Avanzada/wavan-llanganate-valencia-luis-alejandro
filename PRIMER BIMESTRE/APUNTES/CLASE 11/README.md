@@ -59,8 +59,8 @@ apellido.toUpperCase(); // metodos string
 ```
 
 **Any**
-- El tipo any nos permite asignar literalmente "cualquier" valor particular a esa variable, simulando lo que conocemos como JavaScript simple, donde los tipos pueden asignarse dinámicamente desde diferentes tipos [1].
-- Se puede decir que any es un `tipo comodín`, el cual permite ser reemplazado con cualquier otro tipo (exceptuando never) con el fin de asignar tipos diferentes entre si [1].
+- El tipo any nos permite asignar literalmente "cualquier" valor particular a esa variable, simulando lo que conocemos como JavaScript simple, donde los tipos pueden asignarse dinámicamente desde diferentes tipos [[1]](#1).
+- Se puede decir que any es un `tipo comodín`, el cual permite ser reemplazado con cualquier otro tipo (exceptuando never) con el fin de asignar tipos diferentes entre si [[1]](#1).
 
 ```typescript
 let marihuana: any = 2;
@@ -70,7 +70,7 @@ marihuana = () => '2';
 
 **Union Type**
 
-Describe un valor que puede ser de diferentes tipos. Usamos la barra vertical `|` para separar cada tipo. Por lo tanto si decimos, `number | string | boolean` como especificación de un tipo de datos, entonces esta variable puede ser tanto un número un string o un booleano.
+Describe un valor que puede ser de diferentes tipos. Usamos la barra vertical `|` para separar cada tipo. Por lo tanto si decimos, `number | string | boolean` como especificación de un tipo de datos, entonces esta variable puede ser tanto un número un string o un booleano [[2]](#2).
 ```typescript
 let edadMultiple: number | string | Date;
 edadMultiple = '2';
@@ -86,7 +86,7 @@ edadMultiple = new Date();
   <img width='400px;' src="https://user-images.githubusercontent.com/20259832/145035265-6434ed9d-ff88-4c44-886a-df9a9b63a22f.png">
 </p>
 
-Los transpilers, o source-to-source compilers, son herramientas que leen el código fuente escrito en un lenguaje de programación y producen el código equivalente en otro lenguaje de programación con un nivel similar de abstracción [3].
+Los transpilers, o source-to-source compilers, son herramientas que leen el código fuente escrito en un lenguaje de programación y producen el código equivalente en otro lenguaje de programación con un nivel similar de abstracción [[3]](#3).
 
 Para hacer aquello hacemos uso del comando `tsc` que permitirá darnos un `.js` con el código equivalente a JavaScript.
 
@@ -102,7 +102,7 @@ Como se puede observar a continuación este archivo a sido generado y puede ser 
 
 **Interfaces**
 
-En TypeScript, las interfaces cumplen la función de nombrar tipos específicos y son una forma poderosa de definir contratos dentro de su código, así como contratos con código fuera de su proyecto [4].
+En TypeScript, las interfaces cumplen la función de nombrar tipos específicos y son una forma poderosa de definir contratos dentro de su código, así como contratos con código fuera de su proyecto [[4]](#4).
 
 - Los atributos de la interfaz pueden ser requeridos o no. Es decir, `edad?` es un tipo no requerido o que es lo mismo en nuestro ejemplo: `number | undefined`.
 - También podemos poner valores quemados `boolean | 0 | 1`.
@@ -125,7 +125,7 @@ interface Usuario{
 ```
 
 Ahora bien, haremos uso de nuestra interfaz:
-```
+```typescript
 let user: Usuario = {
   nombre: 'Adrian',
   apellido: 'Eguez',
@@ -149,6 +149,36 @@ let user: Usuario = {
     }
   }
 }  
+```
+
+- Una ventaja de las interfaces es que al transpilar estas no ocupan espacio en el código generado en javascript. Como se muestra a continuación, el código generado con la interfaz se acopla directamente al de un objeto en JavaScript.
+
+```javascript
+var _this = this;
+var user = {
+    nombre: 'Adrian',
+    apellido: 'Eguez',
+    casado: 0,
+    sueldo: 11.2,
+    estado: 'BN',
+    imprimirUsuario: function (mensaje) {
+        return 'El mensaje es:' + mensaje;
+    },
+    calcularImpuestos: function (impuesto) {
+        return _this.sueldo + _this.sueldo * impuesto;
+    },
+    estadoActual: function () {
+        switch (_this.estado) {
+            case 'AC':
+                return 'AP';
+            case 'IN':
+                return 'AF';
+            case 'BN':
+                return 'AT';
+        }
+    }
+};
+
 ```
 
 
