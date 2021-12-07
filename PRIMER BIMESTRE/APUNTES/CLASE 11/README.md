@@ -2,9 +2,18 @@
 
 ### Objetivos
 
+- Conocer las principales características de typescript como un superset de Javascript y su tipado estático.
+- Entender la asignación de tipos de datos a variables empleando nuevas funcionalidades del propio lenguaje como por ejemplo `any` o el `union type`.
+- Comprender la diferencia entre el proceso de compilación y transpilación característico de TypeScript.
+
 ### Desarrollo
 
 TypeScript es un lenguaje desarrollado y mantenido por Microsoft.
+
+<p align='center'>
+  <img width='400px;' src="https://user-images.githubusercontent.com/20259832/145035100-2d3a401e-9324-460e-8500-211d7882985e.png">
+</p>
+
 
 **Características:**
 
@@ -73,9 +82,13 @@ edadMultiple = new Date();
 
 **Transpiler vs Compiler**
 
+<p align='center'>
+  <img width='400px;' src="https://user-images.githubusercontent.com/20259832/145035265-6434ed9d-ff88-4c44-886a-df9a9b63a22f.png">
+</p>
+
 Los transpilers, o source-to-source compilers, son herramientas que leen el código fuente escrito en un lenguaje de programación y producen el código equivalente en otro lenguaje de programación con un nivel similar de abstracción [3].
 
-Para hacer aquello hacemos uso del comando `tsc` que permitirá darnos un `.js` con el código equivalente a javascript.
+Para hacer aquello hacemos uso del comando `tsc` que permitirá darnos un `.js` con el código equivalente a JavaScript.
 
 ```
 tsc 01-variable.ts
@@ -83,13 +96,73 @@ tsc 01-variable.ts
 
 Como se puede observar a continuación este archivo a sido generado y puede ser ejecutado utilizando `node 01-variable.ts`:
 
+<p align='center'>
+  <img src="https://user-images.githubusercontent.com/20259832/145033793-c01f67c2-7fbb-4e1d-b8b5-2c492cd221af.png">
+</p>
+
+**Interfaces**
+
+En TypeScript, las interfaces cumplen la función de nombrar tipos específicos y son una forma poderosa de definir contratos dentro de su código, así como contratos con código fuera de su proyecto [4].
+
+- Los atributos de la interfaz pueden ser requeridos o no. Es decir, `edad?` es un tipo no requerido o que es lo mismo en nuestro ejemplo: `number | undefined`.
+- También podemos poner valores quemados `boolean | 0 | 1`.
+- También en una interfaz podemos tipar funciones.
+
+```typescript
+interface Usuario{
+    nombre: string;
+    apellido: string;
+    edad?: number; //Opcional
+    sueldo?: number; //Opcional
+    casado: boolean | 0 | 1;
+    estado: "AC"  | "IN" | "BN";
+    imprimirUsuario: (mensaje: string) => string | "BN";
+    calcularImpuestos: (impuestos : number) => number;
+    estadoActual: () => "AP" | "AF" | "AT";
+    //calcularImpuestos paramentro numero impuestos, sueldo + sueldo * impuestos
+    //estadoActual n orecibe parametros,  "AP"  "AF" "AT";
+}
+```
+
+Ahora bien, haremos uso de nuestra interfaz:
+```
+let user: Usuario = {
+  nombre: 'Adrian',
+  apellido: 'Eguez',
+  casado: 0
+  sueldo: 11.2,
+  estado: 'BN',
+  imprimirUsuario: mensaje => {
+    return 'El mensaje es:' + mensaje;
+  },
+  calcularImpuestos: impuesto => {
+    return this.sueldo + this.sueldo * impuesto;
+  },
+  estadoActual: () => {
+    switch(this.estado){
+      case 'AC':
+        return 'AP';
+      case 'IN':
+        return 'AF';
+      case 'BN':
+        return 'AT';
+    }
+  }
+}  
+```
 
 
+### Conclusiones
+- TypeScript implementa mejoras como el tipado estático y nuevos elementos para la programación orientada a objetos, que permiten programar con la lógica de JavaSciprt de una forma más segura a la hora de hacer el proceso de depuración de código o a su vez de encontrar errores o excepciones a la hora de programar. Por lo tanto, este lenguaje de programación mantenido por Microsoft es útil para proyectos grandes con muchas líneas de código en donde el proceso de debugging podría llegar a ser muy complejo.
+- El uso de `any` no es recomendable en TypeScript y debe ser evitado ya que sacrifica el sistema de tipado fuerte que mantiene el lenguaje. No obstante, permite simular al tipado dinámico de javascript pero podría ser reemplazado por ejemplo por el uso de `Union Type` que permite englobar diferentes tipos de datos a una variable.
+- Una interfaz es útil a la hora de aplicar `duck typing` en nuestro códgo. Así también, es una funcionalidad que agrega este lenguaje a JavaScrript en donde es importante tener claro que una interfaz no es un objeto sino un tipo de dato con nuestro contrato definido.
 
+### Referencias
 
+<a id="1">[1]</a> https://cutt.ly/EYcuufN.
 
-[1] https://cutt.ly/EYcuufN
+<a id="2">[2]</a> https://www.typescriptlang.org/docs/handbook/unions-and-intersections.html.
 
-[2] https://www.typescriptlang.org/docs/handbook/unions-and-intersections.html
+<a id="3">[3]</a> https://howtodoinjava.com/typescript/transpiler-vs-compiler/.
 
-[3] https://howtodoinjava.com/typescript/transpiler-vs-compiler/
+<a id="4">[4]</a> https://www.typescriptlang.org/docs/handbook/interfaces.html.
