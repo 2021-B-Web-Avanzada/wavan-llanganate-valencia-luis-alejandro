@@ -15,4 +15,4 @@ Repositorio personal para la materia de Aplicaciones Web Avanzadas.
 - [Clase 8 - Promises](https://github.com/2021-B-Web-Avanzada/wavan-llanganate-valencia-luis-alejandro/tree/master/PRIMER%20BIMESTRE/APUNTES/CLASE%208)
 - [Clase 9 - Ejercicio utilizando promesas](https://github.com/2021-B-Web-Avanzada/wavan-llanganate-valencia-luis-alejandro/tree/master/PRIMER%20BIMESTRE/APUNTES/CLASE%209)
 - [Clase 10](https://github.com/2021-B-Web-Avanzada/wavan-llanganate-valencia-luis-alejandro/tree/master/PRIMER%20BIMESTRE/APUNTES/CLASE%2010)
-- [Clase 11](https://github.com/2021-B-Web-Avanzada/wavan-llanganate-valencia-luis-alejandro/tree/master/PRIMER%20BIMESTRE/APUNTES/CLASE%2011)
+- [Clase 11 - Variables & Interfaces en TypeScript](https://github.com/2021-B-Web-Avanzada/wavan-llanganate-valencia-luis-alejandro/tree/master/PRIMER%20BIMESTRE/APUNTES/CLASE%2011)
