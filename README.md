@@ -14,25 +14,11 @@ Repositorio personal para la materia de Aplicaciones Web Avanzadas.
 - [Clase 7 - Callbacks](https://github.com/2021-B-Web-Avanzada/wavan-llanganate-valencia-luis-alejandro/tree/master/PRIMER%20BIMESTRE/APUNTES/CLASE%207)
 - [Clase 8 - Promises](https://github.com/2021-B-Web-Avanzada/wavan-llanganate-valencia-luis-alejandro/tree/master/PRIMER%20BIMESTRE/APUNTES/CLASE%208)
 - [Clase 9 - Ejercicio utilizando promesas](https://github.com/2021-B-Web-Avanzada/wavan-llanganate-valencia-luis-alejandro/tree/master/PRIMER%20BIMESTRE/APUNTES/CLASE%209)
-- [Clase 10](https://github.com/2021-B-Web-Avanzada/wavan-llanganate-valencia-luis-alejandro/tree/master/PRIMER%20BIMESTRE/APUNTES/CLASE%2010)
+- [Clase 10 - Inquirer](https://github.com/2021-B-Web-Avanzada/wavan-llanganate-valencia-luis-alejandro/tree/master/PRIMER%20BIMESTRE/APUNTES/CLASE%2010)
 - [Clase 11 - Variables & Interfaces en TypeScript](https://github.com/2021-B-Web-Avanzada/wavan-llanganate-valencia-luis-alejandro/tree/master/PRIMER%20BIMESTRE/APUNTES/CLASE%2011)
 - [Clase 12 - Funciones, clases e instalación de Angular](https://github.com/2021-B-Web-Avanzada/wavan-llanganate-valencia-luis-alejandro/tree/master/PRIMER%20BIMESTRE/APUNTES/CLASE%2012)
+- [Clase 13 - Conceptos previos para entender Angular](https://github.com/2021-B-Web-Avanzada/wavan-llanganate-valencia-luis-alejandro/tree/master/PRIMER%20BIMESTRE/APUNTES/CLASE%2013)
 
 ## Tareas
-- [Deber 01](https://github.com/2021-B-Web-Avanzada/wavan-llanganate-valencia-luis-alejandro/tree/master/PRIMER%20BIMESTRE/TAREAS/DEBER_01)
-
-**Intrucción:**
-
-Seleccionar 2 diferentes entidades, cada una va a tener al menos 5 campos, y entre las dos entidades vamos a usar todos los primitivos de JavaScript.
-
-Los datos de las entidades van a ser persistidos en archivos.
- 
-Realizar tnato CRUD de la entidad Padre, CRUD de la entidad Hija, 
- 
-Para ingresar a las entidades hijas, se debe seleccionar la entidad PADRE.
-
-- [Deber 02](https://github.com/2021-B-Web-Avanzada/wavan-llanganate-valencia-luis-alejandro/tree/master/PRIMER%20BIMESTRE/TAREAS/DEBER_02)
-
-**Intrucción:**
-
-Crear un RESTFUL API de las entidades seleccionadas: bibliotecas y libros.
+- [Deber 01 - CRUD de entidades utilizando archivos](https://github.com/2021-B-Web-Avanzada/wavan-llanganate-valencia-luis-alejandro/tree/master/PRIMER%20BIMESTRE/TAREAS/DEBER_01)
+- [Deber 02 - API REST de las entidades](https://github.com/2021-B-Web-Avanzada/wavan-llanganate-valencia-luis-alejandro/tree/master/PRIMER%20BIMESTRE/TAREAS/DEBER_02)
