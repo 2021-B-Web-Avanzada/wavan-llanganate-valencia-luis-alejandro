@@ -4,7 +4,7 @@
 
 Repositorio personal para la materia de Aplicaciones Web Avanzadas.
 
-## Contenidos
+## Contenidos de las clases
 - [Clase 1 - Git y GitHub](https://github.com/2021-B-Web-Avanzada/wavan-llanganate-valencia-luis-alejandro/tree/master/PRIMER%20BIMESTRE/APUNTES/CLASE%201%20-%20GitHub)
 - [Clase 2 - Manejo de commits, ramas y conflictos](https://github.com/2021-B-Web-Avanzada/wavan-llanganate-valencia-luis-alejandro/tree/master/PRIMER%20BIMESTRE/APUNTES/CLASE%202%20)
 - [Clase 3 - Variables en JavaScript](https://github.com/2021-B-Web-Avanzada/wavan-llanganate-valencia-luis-alejandro/tree/master/PRIMER%20BIMESTRE/APUNTES/CLASE%203)
@@ -17,3 +17,22 @@ Repositorio personal para la materia de Aplicaciones Web Avanzadas.
 - [Clase 10](https://github.com/2021-B-Web-Avanzada/wavan-llanganate-valencia-luis-alejandro/tree/master/PRIMER%20BIMESTRE/APUNTES/CLASE%2010)
 - [Clase 11 - Variables & Interfaces en TypeScript](https://github.com/2021-B-Web-Avanzada/wavan-llanganate-valencia-luis-alejandro/tree/master/PRIMER%20BIMESTRE/APUNTES/CLASE%2011)
 - [Clase 12 - Funciones, clases e instalación de Angular](https://github.com/2021-B-Web-Avanzada/wavan-llanganate-valencia-luis-alejandro/tree/master/PRIMER%20BIMESTRE/APUNTES/CLASE%2012)
+
+## Tareas
+- [Deber 01](https://github.com/2021-B-Web-Avanzada/wavan-llanganate-valencia-luis-alejandro/tree/master/PRIMER%20BIMESTRE/TAREAS/DEBER_01)
+
+**Intrucción:**
+
+Seleccionar 2 diferentes entidades, cada una va a tener al menos 5 campos, y entre las dos entidades vamos a usar todos los primitivos de JavaScript.
+
+Los datos de las entidades van a ser persistidos en archivos.
+ 
+Realizar tnato CRUD de la entidad Padre, CRUD de la entidad Hija, 
+ 
+Para ingresar a las entidades hijas, se debe seleccionar la entidad PADRE.
+
+- [Deber 02](https://github.com/2021-B-Web-Avanzada/wavan-llanganate-valencia-luis-alejandro/tree/master/PRIMER%20BIMESTRE/TAREAS/DEBER_02)
+
+**Intrucción:**
+
+Crear un RESTFUL API de las entidades seleccionadas: bibliotecas y libros.
