@@ -2,6 +2,10 @@
 
 ### Objetivos
 
+- Aprender como declarar y utilizar funciones con las caraterísticas de tipado de TypeScript.
+- Aplicar los conocimientos de clases de POO en TypeScript.
+- Instalar Angular CLI y crear nuestro primer Workspace con el uso de un comando.
+
 ### Desarrollo
 
 **Funciones**
@@ -139,13 +143,42 @@ npm install -g @angular/cli
 ng v
 ```
 
-En donde se desplagará la siguiente información:
+En donde se desplegará la siguiente información:
+<p align='center'>
+        <img width="500px;" src="https://user-images.githubusercontent.com/20259832/145724376-cb187e0d-649e-413b-81f0-0f65217fd2c8.png" alt="Command ng v">
+</p>
+
+**Creación de un Angular Workspace**
+
+Un `workspace` en Angular es una colección de proyectos Angular impulsados por el Angular CLI que se ubican generalmente en un solo repositorio.
+
+**`ng new app-name`**
+- Este comando crea un directorio del sistema de archivos (workspace root). En el workspace root, también crea el archivo de configuración del espacio de trabajo (angular.json) y, de forma predeterminada, un proyecto de aplicación inicial con el mismo nombre.
 
 
+Algunas consideraciones antes de aplicar el comando:
+- Angular routing: permite la navegación a diferentes vistas de nuestra aplicación. Es la forma principal de llevar a los usuarios a diferentes destinos de la aplicación web a través de un manejador de rutas.
+- SCSS: o Sassy CSS es una sinstaxis CSS agrega mucha funcionalidad adicional a CSS como variables, anidamiento y más, lo que puede hacer que escribir CSS sea más fácil y rápido.
+- Sass: proviene de la palabra "Syntactically Awesome Style Sheets" y es un preprocesador CSS que puede utilizar la sintaxis SCSS.
 
-**Bibliografía**
+Ahora bien luego de aplicar el comando se nos pedirá seleccionar unas configuraciones iniciales:
+
+<p align='center'>
+        <img width="800px;" src="https://user-images.githubusercontent.com/20259832/145724940-7f11c19b-bf3a-4aa3-a5d5-33b1559905e4.png" alt="ng new">
+</p>
+
+
+### Conclusiones
+- En TypeScript podemos delimitar los miembros de una clase a través del uso de modificadores de acceso que se recomiendan que sean utilizados para tener una mejor legibilidad y encapsulamiento del código.
+- Dentro de TypeScript tenemos nuevas funcionalidades que prevee errores de programación en POO, por ejemplo el uso de `readonly` que permite tener atributos que puedan ser modificados únicamente desde el constructor. O a su vez podemos crear propiedades de la clase desde el constructor, estableciéndolos como parámetros en el mismo y usando modificadores de acceso.
+- La instalación de Angular se la aplica a través de lo que se conoce como el Angular CLI que dispone de varios comandos importantes para la creación de workspaces y manejo de proyectos y sus caraterísticas en Angular.
+
+
+### Bibliografía
 
 <a id="1">[1]</a> https://www.typescriptlang.org/docs/handbook/basic-types.html
 
 <a id="2">[2]</a> https://www.typescriptlang.org/docs/handbook/basic-types.html
+
+<a id="3">[3]</a> https://www.pluralsight.com/guides/use-sass-less-or-css-within-your-angular-component-template
 
