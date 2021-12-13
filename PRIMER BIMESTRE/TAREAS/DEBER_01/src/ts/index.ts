@@ -9,6 +9,7 @@ async function runApp() {
                 console.log('Hasta la próxima vaquero.')
                 break;
             case 'Bibliotecas':
+                console.log('biblioteca'.slice(-1));
                 const libraryOperationSelection = await askForOperation('biblioteca');
                 break;
             case 'Libros':
