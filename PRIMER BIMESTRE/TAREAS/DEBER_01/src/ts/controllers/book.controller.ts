@@ -1,40 +1,40 @@
 import { promises } from "fs";
 import Book from "../entities/book.entity";
+import LibraryController from "./library.controller";
 
-const JSONFilePath = './data/books.json'
+const JSONFilePath = './data/data.json'
 const { readFile, writeFile, appendFile } = promises;
 
 
 export default class BookController {
-    static async createBook(newBook: Book) {
-        const content = await readFile(JSONFilePath, 'utf-8');
-        if (content !== '') {
-            const books = await this.getAllBooks();
-            const bookExists = books.filter(book => book.ISBN === newBook.ISBN)
+    static async createBook(newBook: Book, idLibrary: number) {
+        let libraries = await LibraryController.getAllLibraries();
+        const library = libraries.find(library => library.id = idLibrary);
+        if (library) {
+            const bookExists = library.books.filter(book => book.ISBN === newBook.ISBN)
             if (bookExists.length !== 0) {
                 throw new Error('This book already exists');
             }
-            books.push(newBook);
-            writeFile(JSONFilePath, JSON.stringify(books, null, 4));
-        } else {
-            writeFile(JSONFilePath, JSON.stringify([newBook], null, 4));
+            library.books.push(newBook);
+            libraries = libraries.map(
+                lib => lib.id === library.id ? {...library} : lib
+            )
+            writeFile(JSONFilePath, JSON.stringify(libraries, null, 4));
         }
     }
 
-    static async getAllBooks(): Promise<Book[]> {
-        const books = await readFile(
-            JSONFilePath,
-            { encoding: 'utf-8' },
-        )
-        try {
-            return JSON.parse(books)
-        } catch (error) {
-            throw new Error("An error has ocurred")
+
+    static async getAllBooks(idLibrary: number): Promise<Book[]> {
+        const libraries = await LibraryController.getAllLibraries();
+        const library = libraries.find(library => library.id = idLibrary);
+        if (library && library.books !== undefined) {
+            return library.books
         }
+        throw new Error('Error in getAllBooks')
     }
 
-    static async getBookByISBN(ISBNBook: string): Promise<Book> {
-        const books = await this.getAllBooks();
+    static async getBookByISBN(ISBNBook: string, idLibrary: number): Promise<Book> {
+        const books = await this.getAllBooks(idLibrary);
         const book = books.find(book => book.ISBN === ISBNBook);
         if (book) {
             return book
@@ -43,28 +43,33 @@ export default class BookController {
         }
     }
 
-    static async updateBookByISBN(bookModified: Book) {
-        const books = await this.getAllBooks()
-        const bookExists = books.filter(book => book.ISBN === bookModified.ISBN)
-        if (bookExists.length === 0) {
-            throw new Error('Imposible to update a book that is not stored');
-        }
-        const booksAfterUpdate = books.map(book => {
-            if (book.ISBN == bookModified.ISBN) {
-                book = bookModified
+    static async updateBook(bookModified: Book, idLibrary: number) {
+        let libraries = await LibraryController.getAllLibraries();
+        const library = libraries.find(library => library.id = idLibrary);
+        if (library) {
+            const bookExists = library.books.filter(book => book.ISBN === bookModified.ISBN)
+            if (bookExists.length !== 0) {
+                throw new Error('This book doesnt exist');
             }
-            return book;
-        })
-        await writeFile(JSONFilePath, JSON.stringify(booksAfterUpdate, null, 4))
+            library.books.push(bookModified);
+            await LibraryController.updateLibrary(library);
+        }else{
+            throw new Error('Imposible to update a book that is not stored in a library');
+        }
     }
 
-    static async deleteBookByISBN(ISBNBook: string) {
-        const books = await this.getAllBooks()
-        const bookExists = books.filter(book => book.ISBN === ISBNBook)
-        if (bookExists.length === 0) {
-            throw new Error('Imposible to delete a book that is not stored');
+    static async deleteBookByISBN(ISBNBook: string, idLibrary: number) {
+        let libraries = await LibraryController.getAllLibraries();
+        let library = libraries.find(library => library.id = idLibrary);
+        if (library) {
+            const bookExists = library.books.filter(book => book.ISBN === ISBNBook)
+            if (bookExists.length !== 0) {
+                throw new Error('This book doesnt exist');
+            }
+            library.books = library.books.filter(book => book.ISBN !== ISBNBook);
+            await LibraryController.updateLibrary(library);
+        }else{
+            throw new Error('Imposible to delete a book that is not stored in a library');
         }
-        const booksAfterDelete = books.filter(book => book.ISBN !== ISBNBook)
-        await writeFile(JSONFilePath, JSON.stringify(booksAfterDelete, null, 4))
     }
 }
