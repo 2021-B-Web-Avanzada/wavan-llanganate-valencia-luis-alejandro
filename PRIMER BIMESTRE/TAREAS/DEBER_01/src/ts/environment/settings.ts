@@ -1,0 +1,1 @@
+export const DATA_FILE_PATH = './data/data.json'

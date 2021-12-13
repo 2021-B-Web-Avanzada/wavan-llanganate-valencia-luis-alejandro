@@ -1,8 +1,9 @@
 import { promises } from "fs";
 import Book from "../entities/book.entity";
+import { DATA_FILE_PATH } from "../environment/settings";
 import LibraryController from "./library.controller";
 
-const JSONFilePath = './data/data.json'
+const JSONFilePath = DATA_FILE_PATH
 const { readFile, writeFile, appendFile } = promises;
 
 
