@@ -1,47 +1,51 @@
 import fetch from 'node-fetch';
 import inquirer from 'inquirer'
 
- 
- const questions = [
-   {
-     type: 'input',
-     name: 'first_name',
-     message: "What's your first name",
-   },
-   {
-     type: 'input',
-     name: 'last_name',
-     message: "What's your last name",
-     default() {
-       return 'Doe';
-     },
-   },
-   {
-     type: 'input',
-     name: 'fav_color',
-     message: "What's your favorite color",
-     transformer(color: string, answers: any, flags: any) {
+inquirer.registerPrompt("date", require("inquirer-date-prompt"));
 
- 
-     },
-   },
-   {
-     type: 'input',
-     name: 'phone',
-     message: "What's your phone number",
-     validate(value:string) {
-       const pass = value.match(
-         /^([01]{1})?[-.\s]?\(?(\d{3})\)?[-.\s]?(\d{3})[-.\s]?(\d{4})\s?((?:#|ext\.?\s?|x\.?\s?){1}(?:\d+)?)?$/i
-       );
-       if (pass) {
-         return true;
-       }
- 
-       return 'Please enter a valid phone number';
-     },
-   },
- ];
- 
- inquirer.prompt(questions).then((answers) => {
-   console.log(JSON.stringify(answers, null, '  '));
- });
+
+const questions = [
+    {
+        type: 'input',
+        name: 'ISBN',
+        message: "¿Cuál es el ISBN del libro?",
+        validate(value: string) {
+            const pass = value.match(
+                /^(?:ISBN(?:-13)?:?\ )?(?=[0-9]{13}$|(?=(?:[0-9]+[-\ ]){4})[-\ 0-9]{17}$)97[89][-\ ]?[0-9]{1,5}[-\ ]?[0-9]+[-\ ]?[0-9]+[-\ ]?[0-9]$/i
+            );
+            if (pass) {
+                return true;
+            }
+            return 'Por favor ingrese un ISBN válido.';
+        },
+    },
+    {
+        type: 'input',
+        name: 'title',
+        message: "¿Cuál es el título del libro?",
+    }, {
+        type: 'input',
+        name: 'author',
+        message: "¿Quien es el autor del libro?",
+    },
+    {
+        type: 'date',
+        name: 'datePublished',
+        message: "¿Cuál es la fecha de publicación del libro?",
+        format: { month: "short", hour: undefined, minute: undefined },
+        clearable: true,
+    },
+    {
+        type: 'list',
+        name: 'available',
+        message: "¿Está disponible el libro?",
+        choices: ['Sí', 'No'],
+        filter(val: string) {
+            return val === 'Sí' ? true : false;
+        },
+    },
+];
+
+export const askInformationToCreateABook = async () => {
+    return await inquirer.prompt(questions)
+}
