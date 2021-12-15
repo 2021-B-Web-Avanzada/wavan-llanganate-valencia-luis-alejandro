@@ -87,7 +87,6 @@ const askToUpdateABook = () => __awaiter(void 0, void 0, void 0, function* () {
     const book = (0, exports.getBookByFormat)(books, bookSelected.book);
     const userInput = yield inquirer_1.default.prompt(getQuestionsForModifyABook(book));
     const bookModified = Object.assign({ ISBN: book.ISBN }, userInput);
-    console.log(bookModified);
     return book_controller_1.default.updateBook(bookModified, library.id);
 });
 exports.askToUpdateABook = askToUpdateABook;

@@ -18,9 +18,26 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.askForOperation = exports.askForModule = void 0;
+exports.processOption = exports.askForOperation = exports.askForModule = void 0;
 const inquirer = __importStar(require("inquirer"));
+const create_book_1 = require("../../books/cli/create.book");
+const delete_book_1 = require("../../books/cli/delete.book");
+const read_book_1 = require("../../books/cli/read.book");
+const update_book_1 = require("../../books/cli/update.book");
+const create_library_1 = require("../../libraries/cli/create.library");
+const delete_library_1 = require("../../libraries/cli/delete.library");
+const read_library_1 = require("../../libraries/cli/read.library");
+const update_library_1 = require("../../libraries/cli/update.library");
 const askForModule = () => {
     return inquirer.prompt([
         {
@@ -56,3 +73,66 @@ const askForOperation = (moduleName) => {
     ]);
 };
 exports.askForOperation = askForOperation;
+const bookOptions = {
+    create: 'Crear un libro',
+    read: ['Consultar todos los libros',
+        'Consultar un libro por su ID'],
+    update: 'Actualizar un libro',
+    delete: 'Eliminar un libro',
+};
+const libraryOptions = {
+    create: 'Crear una biblioteca',
+    read: ['Consultar todas las bibliotecas',
+        'Consultar una biblioteca por su ID'],
+    update: 'Actualizar una bibliteca',
+    delete: 'Eliminar un libro',
+};
+const processOption = (option, callback) => __awaiter(void 0, void 0, void 0, function* () {
+    switch (option) {
+        // Library
+        case libraryOptions.create:
+            yield (0, create_library_1.askInformationToCreateALibrary)();
+            callback();
+            break;
+        case libraryOptions.read[0]:
+            yield (0, read_library_1.showLibraries)();
+            callback();
+            break;
+        case libraryOptions.read[1]: // by id
+            const library = yield (0, read_library_1.showALibraryById)();
+            console.log(library);
+            callback();
+            break;
+        case libraryOptions.update:
+            yield (0, update_library_1.askInformationToUpdateALibrary)();
+            callback();
+            break;
+        case libraryOptions.delete:
+            yield (0, delete_library_1.askToDeleteALibrary)();
+            callback();
+            break;
+        // Book
+        case bookOptions.create:
+            yield (0, create_book_1.askInformationToCreateABook)();
+            callback();
+            break;
+        case bookOptions.read[0]:
+            break;
+        case bookOptions.read[1]: // by id
+            const book = yield (0, read_book_1.askToGetABookByISBN)();
+            console.log(book);
+            callback();
+            break;
+        case bookOptions.update:
+            yield (0, update_book_1.askToUpdateABook)();
+            callback();
+            break;
+        case bookOptions.delete:
+            yield (0, delete_book_1.askToDeleteABook)();
+            callback();
+            break;
+        default:
+            break;
+    }
+});
+exports.processOption = processOption;

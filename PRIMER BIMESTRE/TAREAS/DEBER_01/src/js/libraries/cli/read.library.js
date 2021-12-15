@@ -27,6 +27,6 @@ const showALibraryById = () => __awaiter(void 0, void 0, void 0, function* () {
     const libraries = yield library_controller_1.default.getAllLibraries();
     const selection = yield inquirer_1.default.prompt((0, update_library_1.getQuestionsForSelectLibrary)(libraries));
     const library = (0, update_library_1.getLibraryByFormat)(libraries, selection.library);
-    console.log((0, update_library_1.setFormatLibrary)(library));
+    return (0, update_library_1.setFormatLibrary)(library);
 });
 exports.showALibraryById = showALibraryById;

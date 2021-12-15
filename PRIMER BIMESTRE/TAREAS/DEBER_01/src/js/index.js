@@ -9,7 +9,6 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const create_book_1 = require("./books/cli/create.book");
 const general_cli_1 = require("./general/cli/general.cli");
 const create_library_1 = require("./libraries/cli/create.library");
 function runApp() {
@@ -23,11 +22,11 @@ function runApp() {
                 case 'Bibliotecas':
                     const libraryOperationSelection = yield (0, general_cli_1.askForOperation)('biblioteca');
                     yield (0, create_library_1.askInformationToCreateALibrary)();
-                    console.log(libraryOperationSelection);
+                    (0, general_cli_1.processOption)(libraryOperationSelection, runApp);
                     break;
                 case 'Libros':
                     const bookOperationSelection = yield (0, general_cli_1.askForOperation)('libro');
-                    process(bookOperationSelection.crudOperation);
+                    (0, general_cli_1.processOption)(bookOperationSelection, runApp);
                     break;
                 default:
                     break;
@@ -38,11 +37,4 @@ function runApp() {
         }
     });
 }
-const process = (operation) => __awaiter(void 0, void 0, void 0, function* () {
-    console.log(operation);
-    if (operation === 'Crear un libro') {
-        const newBook = yield (0, create_book_1.askInformationToCreateABook)();
-        console.log(newBook);
-    }
-});
 runApp();
