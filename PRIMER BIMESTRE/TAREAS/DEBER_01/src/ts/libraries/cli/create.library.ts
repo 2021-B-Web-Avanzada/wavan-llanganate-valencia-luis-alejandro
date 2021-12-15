@@ -35,7 +35,7 @@ const questionsForCreateLibrary = [
         type: 'date',
         name: 'openingHour',
         message: "¿Cuál es la hora de atención?",
-        format: { month: undefined, year:  undefined, day: undefined, hour: "numeric", minute: "numeric" },
+        format: { month: undefined, year: undefined, day: undefined, hour: "numeric", minute: "numeric" },
         clearable: true,
     }
 ];
@@ -43,8 +43,8 @@ const questionsForCreateLibrary = [
 export const askInformationToCreateALibrary = async () => {
 
     const userInput = await inquirer.prompt(questionsForCreateLibrary)
-    
-    const newLibrary : Library = {
+
+    const newLibrary: Library = {
         id: parseInt(userInput.id),
         ...userInput,
         books: [],

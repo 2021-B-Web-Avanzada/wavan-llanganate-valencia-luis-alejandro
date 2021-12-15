@@ -60,12 +60,12 @@ export const getLibraryByFormat = (libraries: Array<Library>, librarySelected: s
     return libraries.filter(library => setFormat(library) === librarySelected)[0]
 }
 
-const askInformationToUpdateALibrary = async () => {
+export const askInformationToUpdateALibrary = async () => {
     const libraries = await LibraryController.getAllLibraries();
     const selection = await inquirer.prompt(getQuestionsForSelectLibrary(libraries))
     const library = getLibraryByFormat(libraries, selection.library);
     const userInput = await inquirer.prompt(getQuestionsUpdateLibrary(library))
-    const libraryModified : Library = {
+    const libraryModified: Library = {
         id: library.id,
         books: library.books,
         ...userInput,
