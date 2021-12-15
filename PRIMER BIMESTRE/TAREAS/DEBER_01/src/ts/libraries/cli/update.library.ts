@@ -5,17 +5,17 @@ import Library from '../entities/library.entity';
 inquirer.registerPrompt("date", require("inquirer-date-prompt"));
 
 
-export const setFormat = (library: Library) => {
+export const setFormatLibrary = (library: Library) => {
     return `ID: ${library.id} - Lugar: ${library.location} - Responsable: ${library.responsable}`
 }
 
 export const getQuestionsForSelectLibrary = (libraries: Array<Library>) => {
-    const formatLibraries = libraries.map(library => setFormat(library));
+    const formatLibraries = libraries.map(library => setFormatLibrary(library));
     return [
         {
             type: 'list',
             name: 'library',
-            message: "¿Seleccione la bilbioteca que desea actualizar?",
+            message: "Seleccione una biblioteca:",
             choices: formatLibraries,
         },
     ];
@@ -57,7 +57,7 @@ const getQuestionsUpdateLibrary = (library: Library) => {
 }
 
 export const getLibraryByFormat = (libraries: Array<Library>, librarySelected: string): Library => {
-    return libraries.filter(library => setFormat(library) === librarySelected)[0]
+    return libraries.filter(library => setFormatLibrary(library) === librarySelected)[0]
 }
 
 export const askInformationToUpdateALibrary = async () => {
@@ -70,5 +70,5 @@ export const askInformationToUpdateALibrary = async () => {
         books: library.books,
         ...userInput,
     }
-    LibraryController.updateLibrary(libraryModified);
+    return LibraryController.updateLibrary(libraryModified);
 }

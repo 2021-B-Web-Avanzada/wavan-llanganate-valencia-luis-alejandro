@@ -61,10 +61,12 @@ class BookController {
             const library = libraries.find(library => library.id = idLibrary);
             if (library) {
                 const bookExists = library.books.filter(book => book.ISBN === bookModified.ISBN);
-                if (bookExists.length !== 0) {
+                if (bookExists.length === 0) {
                     throw new Error('This book doesnt exist');
                 }
-                library.books.push(bookModified);
+                library.books = library.books.map(book => {
+                    return book.ISBN === bookModified.ISBN ? bookModified : book;
+                });
                 yield library_controller_1.default.updateLibrary(library);
             }
             else {

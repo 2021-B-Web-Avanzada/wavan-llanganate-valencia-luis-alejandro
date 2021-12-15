@@ -12,6 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.askLibraryToDelete = void 0;
 const inquirer_1 = __importDefault(require("inquirer"));
 const library_controller_1 = __importDefault(require("../controllers/library.controller"));
 const update_library_1 = require("./update.library");
@@ -21,3 +22,4 @@ const askLibraryToDelete = () => __awaiter(void 0, void 0, void 0, function* () 
     const library = (0, update_library_1.getLibraryByFormat)(libraries, selection.library);
     library_controller_1.default.deleteLibraryById(library.id);
 });
+exports.askLibraryToDelete = askLibraryToDelete;

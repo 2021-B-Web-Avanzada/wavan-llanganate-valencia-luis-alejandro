@@ -4,6 +4,14 @@
         "location": "QUÍMICA",
         "responsable": "Alejandro Llanganate",
         "openingHour": "2021-12-15T02:24:33.476Z",
-        "books": []
+        "books": [
+            {
+                "ISBN": "9780596520687",
+                "title": "La relatividad",
+                "author": "Einstein",
+                "datePublished": "2021-12-15T03:12:42.827Z",
+                "available": true
+            }
+        ]
     }
 ]

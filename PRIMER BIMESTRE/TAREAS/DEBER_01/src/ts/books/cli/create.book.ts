@@ -1,4 +1,8 @@
 import inquirer from 'inquirer'
+import { getLibraryByFormat, getQuestionsForSelectLibrary } from '../../libraries/cli/update.library';
+import LibraryController from '../../libraries/controllers/library.controller';
+import BookController from '../controllers/book.controller';
+import Book from '../entities/book.entity';
 
 inquirer.registerPrompt("date", require("inquirer-date-prompt"));
 
@@ -46,5 +50,9 @@ const questions = [
 ];
 
 export const askInformationToCreateABook = async () => {
-    return await inquirer.prompt(questions)
+    const libraries = await LibraryController.getAllLibraries();
+    const selection = await inquirer.prompt(getQuestionsForSelectLibrary(libraries));
+    const newBook : Book = await inquirer.prompt(questions);
+    const library = getLibraryByFormat(libraries, selection.library);
+    return BookController.createBook(newBook, library.id);
 }

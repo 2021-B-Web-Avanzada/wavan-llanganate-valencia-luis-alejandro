@@ -49,10 +49,12 @@ export default class BookController {
         const library = libraries.find(library => library.id = idLibrary);
         if (library) {
             const bookExists = library.books.filter(book => book.ISBN === bookModified.ISBN)
-            if (bookExists.length !== 0) {
+            if (bookExists.length === 0) {
                 throw new Error('This book doesnt exist');
             }
-            library.books.push(bookModified);
+            library.books = library.books.map( book => {
+                return book.ISBN === bookModified.ISBN ? bookModified : book;
+            })
             await LibraryController.updateLibrary(library);
         }else{
             throw new Error('Imposible to update a book that is not stored in a library');

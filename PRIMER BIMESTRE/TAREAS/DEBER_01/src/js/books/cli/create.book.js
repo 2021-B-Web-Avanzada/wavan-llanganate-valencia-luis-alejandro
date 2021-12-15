@@ -14,6 +14,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.askInformationToCreateABook = void 0;
 const inquirer_1 = __importDefault(require("inquirer"));
+const update_library_1 = require("../../libraries/cli/update.library");
+const library_controller_1 = __importDefault(require("../../libraries/controllers/library.controller"));
+const book_controller_1 = __importDefault(require("../controllers/book.controller"));
 inquirer_1.default.registerPrompt("date", require("inquirer-date-prompt"));
 const questions = [
     {
@@ -55,6 +58,10 @@ const questions = [
     },
 ];
 const askInformationToCreateABook = () => __awaiter(void 0, void 0, void 0, function* () {
-    return yield inquirer_1.default.prompt(questions);
+    const libraries = yield library_controller_1.default.getAllLibraries();
+    const selection = yield inquirer_1.default.prompt((0, update_library_1.getQuestionsForSelectLibrary)(libraries));
+    const newBook = yield inquirer_1.default.prompt(questions);
+    const library = (0, update_library_1.getLibraryByFormat)(libraries, selection.library);
+    return book_controller_1.default.createBook(newBook, library.id);
 });
 exports.askInformationToCreateABook = askInformationToCreateABook;
