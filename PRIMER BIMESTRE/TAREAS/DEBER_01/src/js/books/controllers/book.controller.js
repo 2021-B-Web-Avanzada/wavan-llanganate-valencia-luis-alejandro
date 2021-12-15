@@ -13,8 +13,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const fs_1 = require("fs");
-const settings_1 = require("../environment/settings");
-const library_controller_1 = __importDefault(require("./library.controller"));
+const settings_1 = require("../../environment/settings");
+const library_controller_1 = __importDefault(require("../../libraries/controllers/library.controller"));
 const JSONFilePath = settings_1.DATA_FILE_PATH;
 const { readFile, writeFile, appendFile } = fs_1.promises;
 class BookController {

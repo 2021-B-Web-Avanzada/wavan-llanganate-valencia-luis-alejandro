@@ -1,4 +1,3 @@
-import fetch from 'node-fetch';
 import inquirer from 'inquirer'
 
 inquirer.registerPrompt("date", require("inquirer-date-prompt"));

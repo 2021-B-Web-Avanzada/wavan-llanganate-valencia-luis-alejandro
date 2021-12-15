@@ -9,21 +9,25 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const generalCLI_1 = require("./cli/generalCLI");
+const create_book_1 = require("./books/cli/create.book");
+const general_cli_1 = require("./general/cli/general.cli");
+const create_library_1 = require("./libraries/cli/create.library");
 function runApp() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            const menuSelection = yield (0, generalCLI_1.askForModule)();
+            const menuSelection = yield (0, general_cli_1.askForModule)();
             switch (menuSelection.module) {
                 case 'Salir del programa':
                     console.log('Hasta la próxima vaquero.');
                     break;
                 case 'Bibliotecas':
-                    console.log('biblioteca'.slice(-1));
-                    const libraryOperationSelection = yield (0, generalCLI_1.askForOperation)('biblioteca');
+                    const libraryOperationSelection = yield (0, general_cli_1.askForOperation)('biblioteca');
+                    yield (0, create_library_1.askInformationToCreateALibrary)();
+                    console.log(libraryOperationSelection);
                     break;
                 case 'Libros':
-                    const bookOperationSelection = yield (0, generalCLI_1.askForOperation)('libro');
+                    const bookOperationSelection = yield (0, general_cli_1.askForOperation)('libro');
+                    process(bookOperationSelection.crudOperation);
                     break;
                 default:
                     break;
@@ -34,4 +38,11 @@ function runApp() {
         }
     });
 }
+const process = (operation) => __awaiter(void 0, void 0, void 0, function* () {
+    console.log(operation);
+    if (operation === 'Crear un libro') {
+        const newBook = yield (0, create_book_1.askInformationToCreateABook)();
+        console.log(newBook);
+    }
+});
 runApp();

@@ -1,4 +1,4 @@
-import Book from "./book.entity";
+import Book from "../../books/entities/book.entity";
 
 type EPNLocationLibraries = "SISTEMAS" | "GEOLOGÍA" | "QUÍMICA" | "FORMACIÓN BÁSICA" |
                             "ADMINISTRACIÓN CENTRAL" | "CEC" | "MECÁNICA" | "CIENCIAS"
@@ -8,5 +8,5 @@ export default interface Library {
     location : string
     responsable : string
     books: Book[]
-    openingHours: string
+    openingHour: Date
 }

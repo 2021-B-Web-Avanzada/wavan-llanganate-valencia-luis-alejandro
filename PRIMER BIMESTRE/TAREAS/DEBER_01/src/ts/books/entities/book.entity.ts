@@ -3,5 +3,5 @@ export default interface Book {
     title : string
     author : string
     datePublished : Date
-    avaible: boolean
+    available: boolean
 }

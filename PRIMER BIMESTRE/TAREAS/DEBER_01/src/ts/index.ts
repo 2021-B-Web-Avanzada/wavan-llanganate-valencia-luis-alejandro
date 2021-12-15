@@ -1,5 +1,8 @@
 import * as inquirer from 'inquirer'
-import { askForModule, askForOperation } from './cli/generalCLI';
+import { askInformationToCreateABook } from './books/cli/create.book';
+import { askForModule, askForOperation } from './general/cli/general.cli';
+import { askInformationToCreateALibrary } from './libraries/cli/create.library';
+
 
 async function runApp() {
     try {
@@ -9,18 +12,27 @@ async function runApp() {
                 console.log('Hasta la próxima vaquero.')
                 break;
             case 'Bibliotecas':
-                console.log('biblioteca'.slice(-1));
                 const libraryOperationSelection = await askForOperation('biblioteca');
+                await askInformationToCreateALibrary();
+                console.log(libraryOperationSelection);
                 break;
             case 'Libros':
                 const bookOperationSelection = await askForOperation('libro');
+                process(bookOperationSelection.crudOperation);
                 break;
-
             default:
                 break;
         }
     } catch (error) {
         console.log(error)
+    }
+}
+
+const process = async (operation : string) => {
+    console.log(operation)
+    if (operation === 'Crear un libro'){
+        const newBook = await askInformationToCreateABook();
+        console.log(newBook)
     }
 }
 

@@ -10,7 +10,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const fs_1 = require("fs");
-const settings_1 = require("../environment/settings");
+const settings_1 = require("../../environment/settings");
 const JSONFilePath = settings_1.DATA_FILE_PATH;
 const { readFile, writeFile, appendFile } = fs_1.promises;
 class LibraryController {
