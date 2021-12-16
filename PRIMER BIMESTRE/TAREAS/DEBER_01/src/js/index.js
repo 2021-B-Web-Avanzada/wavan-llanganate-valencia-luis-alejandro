@@ -10,7 +10,6 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const general_cli_1 = require("./general/cli/general.cli");
-const create_library_1 = require("./libraries/cli/create.library");
 function runApp() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
@@ -21,12 +20,13 @@ function runApp() {
                     break;
                 case 'Bibliotecas':
                     const libraryOperationSelection = yield (0, general_cli_1.askForOperation)('biblioteca');
-                    yield (0, create_library_1.askInformationToCreateALibrary)();
-                    (0, general_cli_1.processOption)(libraryOperationSelection, runApp);
+                    yield (0, general_cli_1.processOption)(libraryOperationSelection.crudOperation, runApp);
+                    yield runApp();
                     break;
                 case 'Libros':
                     const bookOperationSelection = yield (0, general_cli_1.askForOperation)('libro');
-                    (0, general_cli_1.processOption)(bookOperationSelection, runApp);
+                    yield (0, general_cli_1.processOption)(bookOperationSelection.crudOperation, runApp);
+                    yield runApp();
                     break;
                 default:
                     break;

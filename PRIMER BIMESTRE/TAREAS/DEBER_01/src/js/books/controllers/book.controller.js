@@ -21,14 +21,14 @@ class BookController {
     static createBook(newBook, idLibrary) {
         return __awaiter(this, void 0, void 0, function* () {
             let libraries = yield library_controller_1.default.getAllLibraries();
-            const library = libraries.find(library => library.id = idLibrary);
+            const library = libraries.find(library => library.id === idLibrary);
             if (library) {
                 const bookExists = library.books.filter(book => book.ISBN === newBook.ISBN);
                 if (bookExists.length !== 0) {
                     throw new Error('This book already exists');
                 }
                 library.books.push(newBook);
-                libraries = libraries.map(lib => lib.id === library.id ? Object.assign({}, library) : lib);
+                libraries = libraries.map(lib => lib.id === library.id ? library : lib);
                 writeFile(JSONFilePath, JSON.stringify(libraries, null, 4));
             }
         });
@@ -36,7 +36,7 @@ class BookController {
     static getAllBooks(idLibrary) {
         return __awaiter(this, void 0, void 0, function* () {
             const libraries = yield library_controller_1.default.getAllLibraries();
-            const library = libraries.find(library => library.id = idLibrary);
+            const library = libraries.find(library => library.id === idLibrary);
             if (library && library.books !== undefined) {
                 return library.books;
             }
@@ -58,7 +58,7 @@ class BookController {
     static updateBook(bookModified, idLibrary) {
         return __awaiter(this, void 0, void 0, function* () {
             let libraries = yield library_controller_1.default.getAllLibraries();
-            const library = libraries.find(library => library.id = idLibrary);
+            const library = libraries.find(library => library.id === idLibrary);
             if (library) {
                 const bookExists = library.books.filter(book => book.ISBN === bookModified.ISBN);
                 if (bookExists.length === 0) {

@@ -1,16 +1,52 @@
 [
     {
         "id": "45",
-        "location": "QUÍMICA",
-        "responsable": "Alejandro Llanganate",
-        "openingHour": "2021-12-15T02:24:33.476Z",
         "books": [
             {
                 "ISBN": "9780596520687",
                 "title": "La relatividad",
                 "author": "Einstein",
-                "datePublished": "2021-12-15T03:12:42.827Z",
+                "datePublished": "2021-08-15T02:12:42.827Z",
+                "available": false
+            },
+            {
+                "ISBN": "9788439735421",
+                "title": "Programación web",
+                "author": "Alejandro Valencia",
+                "datePublished": "2016-10-15T23:47:05.174Z",
                 "available": true
+            }
+        ],
+        "location": "SISTEMAS",
+        "responsable": "Jorge Drexler",
+        "openingHour": "2021-12-14T23:24:33.476Z"
+    },
+    {
+        "id": "15",
+        "location": "FORMACIÓN BÁSICA",
+        "responsable": "Hernán Paredes",
+        "openingHour": "2021-12-15T13:15:54.689Z",
+        "books": []
+    },
+    {
+        "id": "22",
+        "location": "FORMACIÓN BÁSICA",
+        "responsable": "Emilio Flores",
+        "openingHour": "2021-12-15T14:28:39.134Z",
+        "books": []
+    },
+    {
+        "id": "11",
+        "location": "MECANICA",
+        "responsable": "Diego Marquez",
+        "openingHour": "2021-12-15T13:30:44.640Z",
+        "books": [
+            {
+                "ISBN": "9788439735427",
+                "title": "Geometría",
+                "author": "Manzano",
+                "datePublished": "2014-09-15T23:46:25.185Z",
+                "available": false
             }
         ]
     }

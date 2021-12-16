@@ -70,18 +70,28 @@ export const getBookByFormat = (books: Array<Book>, bookSelected: string): Book 
 }
 
 export const askToUpdateABook = async () => {
-    const libraries = await LibraryController.getAllLibraries();
-    const selection = await inquirer.prompt(getQuestionsForSelectLibrary(libraries));
-    const library = getLibraryByFormat(libraries, selection.library);
-    const books = await BookController.getAllBooks(library.id);
-    const bookSelected = await inquirer.prompt(getQuestionsForSelectABook(books));
-    const book = getBookByFormat(books, bookSelected.book);
-    const userInput = await inquirer.prompt(getQuestionsForModifyABook(book));
+    try {
+        const libraries = await LibraryController.getAllLibraries();
+        const selection = await inquirer.prompt(getQuestionsForSelectLibrary(libraries));
+        const library = getLibraryByFormat(libraries, selection.library);
+        const books = await BookController.getAllBooks(library.id);
+        if (books.length !== 0) {
 
-    const bookModified: Book = {
-        ISBN: book.ISBN,
-        ...userInput
+            const bookSelected = await inquirer.prompt(getQuestionsForSelectABook(books));
+            const book = getBookByFormat(books, bookSelected.book);
+            const userInput = await inquirer.prompt(getQuestionsForModifyABook(book));
+
+            const bookModified: Book = {
+                ISBN: book.ISBN,
+                ...userInput
+            }
+            await BookController.updateBook(bookModified, library.id);
+            console.log('Libro actualizado correctamente')
+        }else{
+            console.log('Esta biblioteca no tiene libros')
+        }
+
+    } catch (error) {
+        return 'No se pudo actualizar porque el libro no existe';
     }
-
-    return BookController.updateBook(bookModified, library.id);
 }

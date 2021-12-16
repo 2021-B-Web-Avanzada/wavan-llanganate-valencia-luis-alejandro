@@ -13,12 +13,13 @@ async function runApp() {
                 break;
             case 'Bibliotecas':
                 const libraryOperationSelection = await askForOperation('biblioteca');
-                await askInformationToCreateALibrary();
-                processOption(libraryOperationSelection, runApp);
+                await processOption(libraryOperationSelection.crudOperation, runApp);
+                await runApp();
                 break;
             case 'Libros':
                 const bookOperationSelection = await askForOperation('libro');
-                processOption(bookOperationSelection, runApp);
+                await processOption(bookOperationSelection.crudOperation, runApp);
+                await runApp();
                 break;
             default:
                 break;

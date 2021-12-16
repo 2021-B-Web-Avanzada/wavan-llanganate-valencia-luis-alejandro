@@ -10,7 +10,7 @@ const { readFile, writeFile, appendFile } = promises;
 export default class BookController {
     static async createBook(newBook: Book, idLibrary: number) {
         let libraries = await LibraryController.getAllLibraries();
-        const library = libraries.find(library => library.id = idLibrary);
+        const library = libraries.find(library => library.id === idLibrary);
         if (library) {
             const bookExists = library.books.filter(book => book.ISBN === newBook.ISBN)
             if (bookExists.length !== 0) {
@@ -18,7 +18,7 @@ export default class BookController {
             }
             library.books.push(newBook);
             libraries = libraries.map(
-                lib => lib.id === library.id ? {...library} : lib
+                lib => lib.id === library.id ? library : lib
             )
             writeFile(JSONFilePath, JSON.stringify(libraries, null, 4));
         }
@@ -27,7 +27,7 @@ export default class BookController {
 
     static async getAllBooks(idLibrary: number): Promise<Book[]> {
         const libraries = await LibraryController.getAllLibraries();
-        const library = libraries.find(library => library.id = idLibrary);
+        const library = libraries.find(library => library.id === idLibrary);
         if (library && library.books !== undefined) {
             return library.books
         }
@@ -46,7 +46,7 @@ export default class BookController {
 
     static async updateBook(bookModified: Book, idLibrary: number) {
         let libraries = await LibraryController.getAllLibraries();
-        const library = libraries.find(library => library.id = idLibrary);
+        const library = libraries.find(library => library.id === idLibrary);
         if (library) {
             const bookExists = library.books.filter(book => book.ISBN === bookModified.ISBN)
             if (bookExists.length === 0) {

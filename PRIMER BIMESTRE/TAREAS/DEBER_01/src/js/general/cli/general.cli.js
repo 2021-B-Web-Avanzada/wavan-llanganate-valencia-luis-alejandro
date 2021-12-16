@@ -84,54 +84,54 @@ const libraryOptions = {
     create: 'Crear una biblioteca',
     read: ['Consultar todas las bibliotecas',
         'Consultar una biblioteca por su ID'],
-    update: 'Actualizar una bibliteca',
-    delete: 'Eliminar un libro',
+    update: 'Actualizar una biblioteca',
+    delete: 'Eliminar una biblioteca',
 };
-const processOption = (option, callback) => __awaiter(void 0, void 0, void 0, function* () {
-    switch (option) {
+const processOption = (crudOperation, runApp) => __awaiter(void 0, void 0, void 0, function* () {
+    switch (crudOperation) {
         // Library
         case libraryOptions.create:
             yield (0, create_library_1.askInformationToCreateALibrary)();
-            callback();
+            console.log('Se ha creado correctamente una biblioteca');
             break;
         case libraryOptions.read[0]:
             yield (0, read_library_1.showLibraries)();
-            callback();
             break;
         case libraryOptions.read[1]: // by id
             const library = yield (0, read_library_1.showALibraryById)();
             console.log(library);
-            callback();
             break;
         case libraryOptions.update:
+            console.log('vergaa');
             yield (0, update_library_1.askInformationToUpdateALibrary)();
-            callback();
+            console.log('La biblioteca ha sido actualizada');
             break;
         case libraryOptions.delete:
             yield (0, delete_library_1.askToDeleteALibrary)();
-            callback();
+            console.log('La biblioteca ha sido eliminada');
             break;
         // Book
         case bookOptions.create:
             yield (0, create_book_1.askInformationToCreateABook)();
-            callback();
+            console.log('Se ha creado correctamente un libro.');
             break;
         case bookOptions.read[0]:
+            yield (0, read_book_1.showBooks)();
             break;
         case bookOptions.read[1]: // by id
             const book = yield (0, read_book_1.askToGetABookByISBN)();
-            console.log(book);
-            callback();
+            console.log(book.book);
             break;
         case bookOptions.update:
             yield (0, update_book_1.askToUpdateABook)();
-            callback();
             break;
         case bookOptions.delete:
             yield (0, delete_book_1.askToDeleteABook)();
-            callback();
+            console.log('El libro ha sido eliminado');
             break;
-        default:
+        case 'Volver':
+            console.log('volver');
+            yield runApp();
             break;
     }
 });

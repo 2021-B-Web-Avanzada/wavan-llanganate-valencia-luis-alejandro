@@ -1,7 +1,7 @@
 import * as inquirer from 'inquirer'
 import { askInformationToCreateABook } from '../../books/cli/create.book';
 import { askToDeleteABook } from '../../books/cli/delete.book';
-import { askToGetABookByISBN } from '../../books/cli/read.book';
+import { askToGetABookByISBN, showBooks } from '../../books/cli/read.book';
 import { askToUpdateABook } from '../../books/cli/update.book';
 import { askInformationToCreateALibrary } from '../../libraries/cli/create.library';
 import { askToDeleteALibrary } from '../../libraries/cli/delete.library';
@@ -56,57 +56,55 @@ const libraryOptions = {
     create: 'Crear una biblioteca',
     read: ['Consultar todas las bibliotecas',
         'Consultar una biblioteca por su ID'],
-    update: 'Actualizar una bibliteca',
-    delete: 'Eliminar un libro',
+    update: 'Actualizar una biblioteca',
+    delete: 'Eliminar una biblioteca',
 };
 
-export const processOption = async (option: string, callback : Function) => {
-    switch (option) {
+export const processOption = async (crudOperation: string, runApp: Function) => {
+    switch (crudOperation) {
         // Library
         case libraryOptions.create:
             await askInformationToCreateALibrary();
-            callback();
+            console.log('Se ha creado correctamente una biblioteca')
             break;
         case libraryOptions.read[0]:
             await showLibraries();
-            callback();
             break;
         case libraryOptions.read[1]: // by id
             const library = await showALibraryById()
             console.log(library);
-            callback();
             break;
         case libraryOptions.update:
+            console.log('vergaa')
             await askInformationToUpdateALibrary();
-            callback();
+            console.log('La biblioteca ha sido actualizada');
             break;
         case libraryOptions.delete:
             await askToDeleteALibrary();
-            callback();
+            console.log('La biblioteca ha sido eliminada');
             break;
         // Book
         case bookOptions.create:
             await askInformationToCreateABook();
-            callback();
+            console.log('Se ha creado correctamente un libro.');
             break;
         case bookOptions.read[0]:
-            
+            await showBooks();
             break;
         case bookOptions.read[1]: // by id
             const book = await askToGetABookByISBN();
-            console.log(book);
-            callback();
+            console.log(book.book);
             break;
         case bookOptions.update:
             await askToUpdateABook();
-            callback();
             break;
         case bookOptions.delete:
             await askToDeleteABook();
-            callback();
+            console.log('El libro ha sido eliminado');
             break;
-        default:
-        
+        case 'Volver':
+            console.log('volver')
+            await runApp();
             break;
     }
 }

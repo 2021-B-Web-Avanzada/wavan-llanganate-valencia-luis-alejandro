@@ -79,14 +79,25 @@ const getBookByFormat = (books, bookSelected) => {
 };
 exports.getBookByFormat = getBookByFormat;
 const askToUpdateABook = () => __awaiter(void 0, void 0, void 0, function* () {
-    const libraries = yield library_controller_1.default.getAllLibraries();
-    const selection = yield inquirer_1.default.prompt((0, update_library_1.getQuestionsForSelectLibrary)(libraries));
-    const library = (0, update_library_1.getLibraryByFormat)(libraries, selection.library);
-    const books = yield book_controller_1.default.getAllBooks(library.id);
-    const bookSelected = yield inquirer_1.default.prompt((0, exports.getQuestionsForSelectABook)(books));
-    const book = (0, exports.getBookByFormat)(books, bookSelected.book);
-    const userInput = yield inquirer_1.default.prompt(getQuestionsForModifyABook(book));
-    const bookModified = Object.assign({ ISBN: book.ISBN }, userInput);
-    return book_controller_1.default.updateBook(bookModified, library.id);
+    try {
+        const libraries = yield library_controller_1.default.getAllLibraries();
+        const selection = yield inquirer_1.default.prompt((0, update_library_1.getQuestionsForSelectLibrary)(libraries));
+        const library = (0, update_library_1.getLibraryByFormat)(libraries, selection.library);
+        const books = yield book_controller_1.default.getAllBooks(library.id);
+        if (books.length !== 0) {
+            const bookSelected = yield inquirer_1.default.prompt((0, exports.getQuestionsForSelectABook)(books));
+            const book = (0, exports.getBookByFormat)(books, bookSelected.book);
+            const userInput = yield inquirer_1.default.prompt(getQuestionsForModifyABook(book));
+            const bookModified = Object.assign({ ISBN: book.ISBN }, userInput);
+            yield book_controller_1.default.updateBook(bookModified, library.id);
+            console.log('Libro actualizado correctamente');
+        }
+        else {
+            console.log('Esta biblioteca no tiene libros');
+        }
+    }
+    catch (error) {
+        return 'No se pudo actualizar porque el libro no existe';
+    }
 });
 exports.askToUpdateABook = askToUpdateABook;
