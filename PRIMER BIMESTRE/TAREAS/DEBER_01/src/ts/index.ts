@@ -1,7 +1,4 @@
-import * as inquirer from 'inquirer'
-import { askInformationToCreateABook } from './books/cli/create.book';
 import { askForModule, askForOperation, processOption } from './general/cli/general.cli';
-import { askInformationToCreateALibrary } from './libraries/cli/create.library';
 
 
 async function runApp() {

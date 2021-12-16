@@ -43,14 +43,13 @@ export const askForOperation = (moduleName: string): Promise<any> => {
     ]);
 }
 
-const bookOptions =
-{
+const bookOptions = {
     create: 'Crear un libro',
     read: ['Consultar todos los libros',
         'Consultar un libro por su ID'],
     update: 'Actualizar un libro',
     delete: 'Eliminar un libro',
-}
+};
 
 const libraryOptions = {
     create: 'Crear una biblioteca',
@@ -75,7 +74,6 @@ export const processOption = async (crudOperation: string, runApp: Function) => 
             console.log(library);
             break;
         case libraryOptions.update:
-            console.log('vergaa')
             await askInformationToUpdateALibrary();
             console.log('La biblioteca ha sido actualizada');
             break;
@@ -103,7 +101,6 @@ export const processOption = async (crudOperation: string, runApp: Function) => 
             console.log('El libro ha sido eliminado');
             break;
         case 'Volver':
-            console.log('volver')
             await runApp();
             break;
     }
