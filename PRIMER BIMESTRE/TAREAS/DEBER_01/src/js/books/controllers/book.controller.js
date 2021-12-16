@@ -77,10 +77,10 @@ class BookController {
     static deleteBookByISBN(ISBNBook, idLibrary) {
         return __awaiter(this, void 0, void 0, function* () {
             let libraries = yield library_controller_1.default.getAllLibraries();
-            let library = libraries.find(library => library.id = idLibrary);
+            let library = libraries.find(library => library.id === idLibrary);
             if (library) {
                 const bookExists = library.books.filter(book => book.ISBN === ISBNBook);
-                if (bookExists.length !== 0) {
+                if (bookExists.length === 0) {
                     throw new Error('This book doesnt exist');
                 }
                 library.books = library.books.filter(book => book.ISBN !== ISBNBook);

@@ -102,7 +102,6 @@ const processOption = (crudOperation, runApp) => __awaiter(void 0, void 0, void 
             console.log(library);
             break;
         case libraryOptions.update:
-            console.log('vergaa');
             yield (0, update_library_1.askInformationToUpdateALibrary)();
             console.log('La biblioteca ha sido actualizada');
             break;
@@ -127,10 +126,8 @@ const processOption = (crudOperation, runApp) => __awaiter(void 0, void 0, void 
             break;
         case bookOptions.delete:
             yield (0, delete_book_1.askToDeleteABook)();
-            console.log('El libro ha sido eliminado');
             break;
         case 'Volver':
-            console.log('volver');
             yield runApp();
             break;
     }

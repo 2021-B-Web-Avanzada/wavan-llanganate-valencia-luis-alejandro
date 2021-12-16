@@ -23,8 +23,14 @@ const askToDeleteABook = () => __awaiter(void 0, void 0, void 0, function* () {
     const selection = yield inquirer_1.default.prompt((0, update_library_1.getQuestionsForSelectLibrary)(libraries));
     const library = (0, update_library_1.getLibraryByFormat)(libraries, selection.library);
     const books = yield book_controller_1.default.getAllBooks(library.id);
-    const bookSelected = yield inquirer_1.default.prompt((0, update_book_1.getQuestionsForSelectABook)(books));
-    const book = (0, update_book_1.getBookByFormat)(books, bookSelected.book);
-    return book_controller_1.default.deleteBookByISBN(book.ISBN, library.id);
+    if (books.length !== 0) {
+        const bookSelected = yield inquirer_1.default.prompt((0, update_book_1.getQuestionsForSelectABook)(books));
+        const book = (0, update_book_1.getBookByFormat)(books, bookSelected.book);
+        yield book_controller_1.default.deleteBookByISBN(book.ISBN, library.id);
+        console.log('El libro ha sido eliminado');
+    }
+    else {
+        console.log('No hay libros que eliminar.');
+    }
 });
 exports.askToDeleteABook = askToDeleteABook;

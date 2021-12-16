@@ -98,7 +98,6 @@ export const processOption = async (crudOperation: string, runApp: Function) => 
             break;
         case bookOptions.delete:
             await askToDeleteABook();
-            console.log('El libro ha sido eliminado');
             break;
         case 'Volver':
             await runApp();

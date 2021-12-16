@@ -9,7 +9,12 @@ export const askToDeleteABook = async () => {
     const selection = await inquirer.prompt(getQuestionsForSelectLibrary(libraries));
     const library = getLibraryByFormat(libraries, selection.library);
     const books = await BookController.getAllBooks(library.id);
-    const bookSelected = await inquirer.prompt(getQuestionsForSelectABook(books));
-    const book = getBookByFormat(books, bookSelected.book);
-    return BookController.deleteBookByISBN(book.ISBN, library.id);
+    if (books.length !== 0) {
+        const bookSelected = await inquirer.prompt(getQuestionsForSelectABook(books));
+        const book = getBookByFormat(books, bookSelected.book);
+        await BookController.deleteBookByISBN(book.ISBN, library.id);
+        console.log('El libro ha sido eliminado');
+    } else {
+        console.log('No hay libros que eliminar.')
+    }
 }

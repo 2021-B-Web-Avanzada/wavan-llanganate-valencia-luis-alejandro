@@ -63,10 +63,10 @@ export default class BookController {
 
     static async deleteBookByISBN(ISBNBook: string, idLibrary: number) {
         let libraries = await LibraryController.getAllLibraries();
-        let library = libraries.find(library => library.id = idLibrary);
+        let library = libraries.find(library => library.id === idLibrary);
         if (library) {
             const bookExists = library.books.filter(book => book.ISBN === ISBNBook)
-            if (bookExists.length !== 0) {
+            if (bookExists.length === 0) {
                 throw new Error('This book doesnt exist');
             }
             library.books = library.books.filter(book => book.ISBN !== ISBNBook);
