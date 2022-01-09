@@ -1,1 +1,42 @@
-<p>navbar works!</p>
+<mat-toolbar>
+  <a href="/profile">
+    <svg-icon src="assets/github-logo.svg" [svgStyle]="{ 'width.px':90 }"></svg-icon>
+  </a>
+  <section class="search">
+    <input type="text" placeholder="Search or jump to...">
+    <div>/</div>
+  </section>
+  <nav class="options">
+    <ul>
+      <li>
+        Pull requests
+      </li>
+      <li>
+        Issues
+      </li>
+      <li>
+        Marketplace
+      </li>
+      <li>
+        Explore
+      </li>
+    </ul>
+  </nav>
+  <nav class="icons-options">
+    <span class="notifications icon-option">
+      <mat-icon>notifications_none</mat-icon>
+    </span>
+    <span class="add icon-option">
+      <mat-icon>add</mat-icon>
+      <span class="down-icon">
+        <mat-icon>keyboard_arrow_down</mat-icon>
+      </span>
+    </span>
+    <span class="user icon-option">
+      <img src={{userURL}} alt="Profile photo">
+      <span class="down-icon">
+        <mat-icon>keyboard_arrow_down</mat-icon>
+      </span>
+    </span>
+  </nav>
+</mat-toolbar>
