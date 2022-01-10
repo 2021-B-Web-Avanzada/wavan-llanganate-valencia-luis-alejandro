@@ -1,0 +1,54 @@
+<div class="user">
+    <div class="user-image">
+        <img src={{imageURL}} alt="User profile">
+    </div>
+    <div class="user-name">
+        {{name}}
+    </div>
+    <div class="user-username">
+        @{{username}}
+    </div>
+    <div class="user-description">
+        {{description}}
+    </div>
+    <div class="user-follow-button">
+        <button mat-stroked-button color="gray">Follow</button>
+    </div>
+    <div class=user-follow-row>
+        <span class="user-follow-icon">
+            <mat-icon>supervisor_account</mat-icon>
+        </span>
+        <span>
+            <strong>{{followers}}</strong> <span class="user-follow-labels">followers</span>
+        </span>
+        <span>
+            <strong>{{following}}</strong> <span class="user-follow-labels">following</span>
+        </span>
+    </div>
+    <div class="user-moreinfo">
+        <div class="user-moreinfo-row">
+            <span class="user-moreinfo-icons">
+                <mat-icon>business</mat-icon>
+            </span>
+            <span>{{company}}</span>
+        </div>
+        <div class="user-moreinfo-row">
+            <span class="user-moreinfo-icons">
+                <mat-icon>location_on</mat-icon>
+            </span>
+            <span>{{location}}</span>
+        </div>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="user-highlights">
+        <h3>
+            <strong>Highlights</strong>
+        </h3>
+        <div class="user-moreinfo-row">
+            <span class="user-moreinfo-icons">
+                <mat-icon>star_border</mat-icon>
+            </span>
+            <span class="user-highlights-pro">PRO</span>
+        </div>
+    </div>
+</div>

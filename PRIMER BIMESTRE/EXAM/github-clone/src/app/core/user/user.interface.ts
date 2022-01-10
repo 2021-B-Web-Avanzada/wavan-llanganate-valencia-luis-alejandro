@@ -6,4 +6,6 @@ export default interface IUser {
     bio: string,
     location: string,
     twitter: string,
+    followers: string,
+    following: string,
 }

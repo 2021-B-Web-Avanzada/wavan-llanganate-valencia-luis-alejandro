@@ -27,7 +27,9 @@ export class UserService {
             location: data.location,
             login: data.login,
             name: data.name,
-            twitter: data.twitter,
+            twitter: data.twitter_username,
+            followers: data.followers,
+            following: data.following,
           }
         }
       )
