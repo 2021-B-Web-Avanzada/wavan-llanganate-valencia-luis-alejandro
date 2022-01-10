@@ -1,1 +1,17 @@
-<p>footer works!</p>
+<footer class=".footer">
+    <mat-toolbar>
+        <div class="footer-logo">
+            <a href="/profile">
+                <svg-icon src="assets/github-logo.svg" [svgStyle]="{ 'width.px':90 }"></svg-icon>
+              </a>
+        </div>
+        <div class="footer-copyright">
+            © 2022 GitHub, Inc.
+        </div>
+        <div class="footer-options">
+            <ul *ngFor="let option of options">
+                <li><a href={{option.link}>{{option.name}}</a></li>
+            </ul>
+        </div>
+    </mat-toolbar>
+</footer>
