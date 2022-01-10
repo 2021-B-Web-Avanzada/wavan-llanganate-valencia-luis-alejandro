@@ -1,5 +1,34 @@
-<mat-tab-group animationDuration="0ms">
-  <mat-tab label="First">Content 1</mat-tab>
-  <mat-tab label="Second">Content 2</mat-tab>
-  <mat-tab label="Third">Content 3</mat-tab>
+<div class="tabs">
+<mat-tab-group animationDuration="0ms" color="warn">
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon class="tab-icon">import_contacts</mat-icon>
+      <span class="tab-title">Overview</span>
+    </ng-template>    
+  </mat-tab>
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon class="tab-icon">book</mat-icon>
+      <span class="tab-title">Repositories</span>
+    </ng-template>    
+  </mat-tab>
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon class="tab-icon">view_list</mat-icon>
+      <span class="tab-title">Projects</span>
+    </ng-template>    
+  </mat-tab>
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon class="tab-icon">layers</mat-icon>
+      <span class="tab-title">Packages</span>
+    </ng-template>    
+  </mat-tab>
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon class="tab-icon">star_border</mat-icon>
+      <span class="tab-title">Starts</span>
+    </ng-template>
+  </mat-tab>  
 </mat-tab-group>
+</div>
