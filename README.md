@@ -10,7 +10,11 @@ Repositorio personal para la materia de Aplicaciones Web Avanzadas.
 
 ## Proyectos
 
-- [Primer Bimestre - Sistema Web para la gestión de carnets digitales para la Asociación de Sistemas de la Escuela Politécnica Nacional](https://github.com/2021-B-Web-Avanzada/wavan-llanganate-valencia-luis-alejandro/tree/master/PRIMER%20BIMESTRE/PROJECT)
+- [Primer Bimestre - Sistema web para la gestión de carnets digitales para la Asociación de Sistemas de la Escuela Politécnica Nacional](https://github.com/2021-B-Web-Avanzada/wavan-llanganate-valencia-luis-alejandro/tree/master/PRIMER%20BIMESTRE/PROJECT)
+
+## Tareas
+- [Deber 01 - CRUD de entidades utilizando archivos](https://github.com/2021-B-Web-Avanzada/wavan-llanganate-valencia-luis-alejandro/tree/master/PRIMER%20BIMESTRE/TAREAS/DEBER_01)
+- [Deber 02 - API REST de las entidades](https://github.com/2021-B-Web-Avanzada/wavan-llanganate-valencia-luis-alejandro/tree/master/PRIMER%20BIMESTRE/TAREAS/DEBER_02)
 
 ## Contenidos de las clases
 
@@ -28,6 +32,4 @@ Repositorio personal para la materia de Aplicaciones Web Avanzadas.
 - [Clase 12 - Funciones, clases e instalación de Angular](https://github.com/2021-B-Web-Avanzada/wavan-llanganate-valencia-luis-alejandro/tree/master/PRIMER%20BIMESTRE/APUNTES/CLASE%2012)
 - [Clase 13 - Conceptos previos para entender Angular](https://github.com/2021-B-Web-Avanzada/wavan-llanganate-valencia-luis-alejandro/tree/master/PRIMER%20BIMESTRE/APUNTES/CLASE%2013)
 
-## Tareas
-- [Deber 01 - CRUD de entidades utilizando archivos](https://github.com/2021-B-Web-Avanzada/wavan-llanganate-valencia-luis-alejandro/tree/master/PRIMER%20BIMESTRE/TAREAS/DEBER_01)
-- [Deber 02 - API REST de las entidades](https://github.com/2021-B-Web-Avanzada/wavan-llanganate-valencia-luis-alejandro/tree/master/PRIMER%20BIMESTRE/TAREAS/DEBER_02)
+
