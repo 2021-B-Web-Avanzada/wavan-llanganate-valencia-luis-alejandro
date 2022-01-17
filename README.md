@@ -8,6 +8,10 @@ Repositorio personal para la materia de Aplicaciones Web Avanzadas.
 
 - [Primer Bimestre - GitHub Clone](https://github.com/2021-B-Web-Avanzada/wavan-llanganate-valencia-luis-alejandro/tree/master/PRIMER%20BIMESTRE/EXAM/github-clone)
 
+## Proyectos
+
+- [Primer Bimestre - Sistema Web para la gestión de carnets digitales para la Asociación de Sistemas de la Escuela Politécnica Nacional](https://github.com/2021-B-Web-Avanzada/wavan-llanganate-valencia-luis-alejandro/tree/master/PRIMER%20BIMESTRE/PROJECT)
+
 ## Contenidos de las clases
 
 - [Clase 1 - Git y GitHub](https://github.com/2021-B-Web-Avanzada/wavan-llanganate-valencia-luis-alejandro/tree/master/PRIMER%20BIMESTRE/APUNTES/CLASE%201%20-%20GitHub)
