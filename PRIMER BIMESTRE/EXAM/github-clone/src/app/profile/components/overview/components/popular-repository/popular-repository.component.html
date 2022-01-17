@@ -1,0 +1,26 @@
+<div class="repo">
+    <div>
+        <div class="repo-row">
+            <div class="repo-title">
+                <div class="repo-icon">
+                    <mat-icon class="book-icon">book</mat-icon>
+                </div>
+                <div class="repo-name">
+                    <a href={{repository.html_url}}>{{repository.name}}</a>
+                </div>
+                <div class="repo-visibility">
+                    <a>{{repository.visibility | titlecase}}</a>
+                </div>
+            </div>
+            <div class="repo-drag">
+                <mat-icon class="drag-icon">drag_indicator</mat-icon>
+            </div>
+        </div>
+        <div class="repo-description">
+            {{repository.description}}
+        </div>
+    </div>
+    <div class="repo-language" *ngIf="repository.language">
+        <div class="circle-language" #myDiv></div>{{repository.language}}
+    </div>
+</div>

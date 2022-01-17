@@ -1,0 +1,15 @@
+<section>
+    <div class="row-info">
+        <div class="row-info-title">
+            Popular repositories
+        </div>
+        <div class="row-info-options">
+            Customize your pins
+        </div>
+    </div>
+    <div class="row-repos">
+        <div *ngFor="let repository of repos">
+            <app-popular-repository [repository]="repository"></app-popular-repository>
+        </div>
+    </div>
+</section>

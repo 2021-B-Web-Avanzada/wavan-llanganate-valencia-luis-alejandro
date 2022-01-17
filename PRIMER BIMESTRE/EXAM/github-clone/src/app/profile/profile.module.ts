@@ -9,13 +9,20 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
-
+import { OverviewSectionComponent } from './components/overview/overview-section/overview-section.component';
+import { PopularReposComponent } from './components/overview/components/popular-repos/popular-repos.component';
+import { ContributionsComponent } from './components/overview/components/contributions/contributions.component';
+import { PopularRepositoryComponent } from './components/overview/components/popular-repository/popular-repository.component';
 
 @NgModule({
   declarations: [
     ProfileComponent,
     UserInfoComponent,
-    TabsComponent
+    TabsComponent,
+    PopularReposComponent,
+    ContributionsComponent,
+    OverviewSectionComponent,
+    PopularRepositoryComponent,    
   ],
   imports: [
     CommonModule,
