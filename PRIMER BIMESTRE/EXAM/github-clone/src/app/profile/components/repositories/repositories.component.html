@@ -1,0 +1,30 @@
+<div class="repositories">
+    <div class="repositories-search">
+        <div class="repositories-search-bar">
+            <input type="text" placeholder="Find a repository">
+        </div>
+        <div class="filter">
+            <button>
+                Type
+                <mat-icon class="new-icon-book">keyboard_arrow_down</mat-icon>
+            </button>
+            <button>
+                Language
+                <mat-icon class="new-icon-book">keyboard_arrow_down</mat-icon>
+            </button>
+            <button>
+                Sort
+                <mat-icon class="new-icon-book">keyboard_arrow_down</mat-icon>
+            </button>
+            <button class="new-icon">
+                <mat-icon class="new-icon-book">book</mat-icon>
+                New
+            </button>
+        </div>
+    </div>
+    <div class="repositories-content">
+        <div *ngFor="let repository of repositories">
+            <app-repository-info [repository]="repository"></app-repository-info>
+        </div>
+    </div>
+</div>

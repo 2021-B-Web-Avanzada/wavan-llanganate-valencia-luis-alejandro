@@ -13,6 +13,8 @@ import { OverviewSectionComponent } from './components/overview/overview-section
 import { PopularReposComponent } from './components/overview/components/popular-repos/popular-repos.component';
 import { ContributionsComponent } from './components/overview/components/contributions/contributions.component';
 import { PopularRepositoryComponent } from './components/overview/components/popular-repository/popular-repository.component';
+import { RepositoriesComponent } from './components/repositories/repositories.component';
+import { RepositoryInfoComponent } from './components/repositories/components/repository-info/repository-info.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { PopularRepositoryComponent } from './components/overview/components/pop
     PopularReposComponent,
     ContributionsComponent,
     OverviewSectionComponent,
-    PopularRepositoryComponent,    
+    PopularRepositoryComponent,
+    RepositoriesComponent,
+    RepositoryInfoComponent,    
   ],
   imports: [
     CommonModule,

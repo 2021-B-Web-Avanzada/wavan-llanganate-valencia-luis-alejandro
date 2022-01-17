@@ -1,0 +1,44 @@
+<div class="repository-box">
+    <div class="repository-column">
+        <div class="repository-title">
+            <div class="repository-name">
+                <a href={{repository.html_url}}>{{repository.name}}</a>
+            </div>
+            <div class="repository-visibility">
+                {{repository.visibility | titlecase}}
+            </div>
+        </div>
+        <div class="repository-description">
+            {{repository.description}}
+        </div>
+        <div class="repository-moreinfo">
+            <div *ngIf="repository.language">
+                <div class="repository-language" >
+                    <div class="circle"></div>
+                    <div>{{repository.language}}</div>
+                </div>
+            </div>
+            <div class="license">
+                MIT
+            </div>
+            <div class="date">
+                Updated on {{repository.updated_at}}
+            </div>
+        </div>
+       
+    </div>
+    <div class="repository-column-buttons">
+        <div class="repository-buttons">
+            <div class="repository-buttons-star">
+                <mat-icon>star_border</mat-icon>
+                <div class="star-label">Star</div>
+            </div>
+            <div class="repository-buttons-star">
+                <mat-icon>keyboard_arrow_down</mat-icon>
+            </div>
+        </div>
+        <div class="repository-column-diagram">
+            <img src="assets/rect.png" alt="">
+        </div>
+    </div>
+</div>
