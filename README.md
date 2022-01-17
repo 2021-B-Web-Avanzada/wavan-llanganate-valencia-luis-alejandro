@@ -4,7 +4,7 @@
 
 Repositorio personal para la materia de Aplicaciones Web Avanzadas.
 
-## Examenes
+## Exámenes
 
 - [Primer Bimestre - GitHub Clone](https://github.com/2021-B-Web-Avanzada/wavan-llanganate-valencia-luis-alejandro/tree/master/PRIMER%20BIMESTRE/EXAM/github-clone)
 
