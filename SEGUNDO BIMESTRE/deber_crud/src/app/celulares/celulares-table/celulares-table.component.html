@@ -1,0 +1,106 @@
+<p-toast></p-toast>
+<div class="card">
+  <p-toolbar styleClass="mb-4">
+      <ng-template pTemplate="left">
+          <button pButton pRipple label="Nuevo" icon="pi pi-plus" class="p-button-success mr-2" (click)="openNew()"></button>
+      </ng-template>
+
+      <ng-template pTemplate="right">
+          <button pButton pRipple label="Volver" icon="pi pi-arrow-up" class="p-button-help" (click)="regresarMarcas()"></button>
+      </ng-template>
+  </p-toolbar>
+
+  <p-table #dt [value]="cellphones" [rows]="10" [paginator]="true" [globalFilterFields]="['name','country.name','representative.name','status']" responsiveLayout="scroll"
+      [(selection)]="selectedCellphones" [rowHover]="true" dataKey="id"
+      currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [showCurrentPageReport]="true">
+      <ng-template pTemplate="caption">
+          <div class="flex align-items-center justify-content-between">
+              <h5>Gestionar Celulares</h5>
+              <span class="input-icons">
+                  <i class="pi pi-search icon"></i>
+                  <input class="input-field form-control" pInputText type="text" (input)="dt.filterGlobal($event, 'contains')" placeholder="Buscar..."/>
+              </span>
+          </div>
+      </ng-template>
+      <ng-template pTemplate="header">
+          <tr>
+              <th style="width: 3rem">
+                  <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+              </th>
+              <th pSortableColumn="name">Nombre</th>
+              <th>Es Actual</th>
+              <th pSortableColumn="price">Precio</th>
+              <th pSortableColumn="category">Imei</th>
+              <th>Serial</th>
+              <th pSortableColumn="rating">Acciones</th>
+
+              <th></th>
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-cellphone>
+          <tr>
+              <td>
+                  <p-tableCheckbox [value]="cellphone"></p-tableCheckbox>
+              </td>
+              <td>{{cellphone.nombre}}</td>
+              <td>{{cellphone.es_actual}}</td>
+              <td>{{cellphone.precio}}</td>
+              <td>{{cellphone.imei}}</td>
+              <td>{{cellphone.serial}}</td>
+
+              <td>
+                  <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="editCellphone(cellphone)"></button>
+                  <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteCellphone(cellphone)"></button>
+              </td>
+
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="summary">
+          <div class="flex align-items-center justify-content-between">
+              In total there are {{cellphones ? cellphones.length : 0 }} products.
+          </div>
+      </ng-template>
+  </p-table>
+</div>
+<!-- Dialogo para crear nueva/editar celular -->
+<p-dialog [(visible)]="cellphoneDialog" [style]="{width: '450px'}" header="Ingresar Nueva Marca" [modal]="true" styleClass="p-fluid">
+  <ng-template pTemplate="content">
+      <!-- LLENAR CAMPOS PARA NUEVOS -->
+      <div class="field">
+          <label class="form-label" for="nombre">Nombre</label>
+          <input class="form-control" type="text" pInputText id="nombre" [(ngModel)]="cellphone.nombre" required autofocus />
+          <small class="p-error" *ngIf="submitted && !cellphone.nombre">Nombre es requerido.</small>
+      </div>
+      <div class="field mt-3">
+        <label for="es_actual">Es Actual?</label>
+        <p-dropdown [(ngModel)]="cellphone.es_actual" inputId="es_actual" [options]="es_actualOptions" placeholder="Select">
+            <ng-template let-option pTemplate="item">
+                <span [class]="'product-badge status-' + option.value">{{option.label}}</span>
+            </ng-template>
+        </p-dropdown>
+    </div>
+      <div class="field mt-3">
+        <label class="form-label" for="precio">Precio</label>
+        <p-inputNumber id="precio" [(ngModel)]="cellphone.precio" mode="currency" currency="USD" locale="en-US"></p-inputNumber>
+        <small class="p-error" *ngIf="submitted && !cellphone.precio">Valor de precio requerido</small>
+      </div>
+      <div class="field mt-3">
+        <label class="form-label" for="imei">Imei</label>
+        <p-inputNumber id="imei" [(ngModel)]="cellphone.imei" ></p-inputNumber>
+        <small class="p-error" *ngIf="submitted && !cellphone.imei">Valor de imei requerido</small>
+      </div>
+      <div class="field mt-3">
+        <label class="form-label" for="serial">Serial</label>
+        <input class="form-control" type="text" pInputText id="serial" [(ngModel)]="cellphone.serial" required autofocus />
+        <small class="p-error" *ngIf="submitted && !cellphone.serial">Valor de serial requerido</small>
+      </div>
+
+  </ng-template>
+
+  <ng-template pTemplate="footer">
+      <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
+      <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-text" (click)="saveCellphone()"></button>
+  </ng-template>
+</p-dialog>
+
+<p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>

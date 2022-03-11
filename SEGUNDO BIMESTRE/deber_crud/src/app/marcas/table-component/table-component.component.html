@@ -1,0 +1,107 @@
+<p-toast></p-toast>
+
+<div class="card">
+  <p-toolbar styleClass="mb-4">
+      <ng-template pTemplate="left">
+          <button pButton pRipple label="Nueva" icon="pi pi-plus" class="p-button-success mr-2" (click)="openNew()"></button>
+
+      </ng-template>
+
+
+  </p-toolbar>
+
+  <p-table #dt [value]="brands" [rows]="10" [paginator]="true" [globalFilterFields]="['name','country.name','representative.name','status']" responsiveLayout="scroll"
+      [(selection)]="selectedBrands" [rowHover]="true" dataKey="id"
+      currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [showCurrentPageReport]="true">
+      <ng-template pTemplate="caption">
+          <div class="flex align-items-center justify-content-between">
+              <h5>Gestionar Marcas</h5>
+              <span class="input-icons">
+                  <i class="pi pi-search icon"></i>
+                  <input class="input-field form-control" pInputText type="text" (keyup.enter)="buscarMarca()" placeholder="Buscar..." #txtBuscar/>
+              </span>
+          </div>
+      </ng-template>
+      <ng-template pTemplate="header">
+          <tr>
+              <th style="width: 3rem">
+                  <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+              </th>
+              <th pSortableColumn="name">Nombre </th>
+              <th>Nacional</th>
+              <th pSortableColumn="price">Precio Acción</th>
+              <th pSortableColumn="category">Año Creación </th>
+              <th pSortableColumn="rating">Acciones</th>
+              <th pSortableColumn="inventoryStatus">Celulares </th>
+              <th></th>
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-brand>
+          <tr>
+              <td>
+                  <p-tableCheckbox [value]="brand"></p-tableCheckbox>
+              </td>
+              
+              <td>{{brand.nombre}}</td>
+              <td>{{brand.es_nacional}}</td>
+              <td>{{brand.acciones}}</td>
+              <td>{{brand.year}}</td>
+
+              <td>
+                  <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2" (click)="editBrand(brand)"></button>
+                  <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-warning" (click)="deleteBrand(brand)"></button>
+              </td>
+              <td>
+                <button pButton pRipple value="Ver" class="p-button-rounded p-button-success mr-2" (click)="getCellphones(brand)">Ver Celulares</button>
+              </td>
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="summary">
+          <div class="flex align-items-center justify-content-between">
+              In total there are {{brands ? brands.length : 0 }} products.
+          </div>
+      </ng-template>
+  </p-table>
+</div>
+<!-- Dialogo para crear nueva marca -->
+<p-dialog [(visible)]="brandDialog" [style]="{width: '450px'}" header="Ingresar Nueva Marca" [modal]="true" styleClass="p-fluid">
+  <ng-template pTemplate="content">
+      <!-- LLENAR CAMPOS PARA NUEVOS -->
+      <div class="field">
+          <label class="form-label" for="nombre">Nombre</label>
+          <input class="form-control" type="text" pInputText id="nombre" [(ngModel)]="brand.nombre" required autofocus />
+          <small class="p-error" *ngIf="submitted && !brand.nombre">Nombre es requerido.</small>
+      </div>
+      <div class="field mt-3">
+        <label for="es_nacional">Es Nacional?</label>
+        <p-dropdown [(ngModel)]="brand.es_nacional" inputId="es_nacional" [options]="es_nacionalOptions" placeholder="Select">
+            <ng-template let-option pTemplate="item">
+                <span [class]="'product-badge status-' + option.value">{{option.label}}</span>
+            </ng-template>
+        </p-dropdown>
+    </div>
+      <div class="field mt-3">
+        <label class="form-label" for="acciones">Acciones</label>
+        <p-inputNumber id="acciones" [(ngModel)]="brand.acciones" ></p-inputNumber>
+        <small class="p-error" *ngIf="submitted && !brand.acciones">Valor de acciones requerido</small>
+      </div>
+      <div class="field mt-3">
+        <label class="form-label" for="year">Year</label>
+        <p-inputNumber id="year" [(ngModel)]="brand.year" ></p-inputNumber>
+        <small class="p-error" *ngIf="submitted && !brand.year">Valor de year requerido</small>
+      </div>
+      <div class="field mt-3">
+        <label class="form-label" for="fundador">Fundador</label>
+        <input class="form-control" type="text" pInputText id="fundador" [(ngModel)]="brand.fundador" required autofocus />
+        <small class="p-error" *ngIf="submitted && !brand.fundador">Valor de fundador requerido</small>
+      </div>
+
+  </ng-template>
+
+  <ng-template pTemplate="footer">
+      <button pButton pRipple label="Cancel" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
+      <button pButton pRipple label="Save" icon="pi pi-check" class="p-button-text" (click)="saveBrand()"></button>
+  </ng-template>
+</p-dialog>
+
+<p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>
